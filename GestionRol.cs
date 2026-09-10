@@ -1,7 +1,7 @@
-using BLL;
+﻿using BLL;
 using Services.Modelos;
 using Services.Modelos.Idioma;
-using Services_55CA;
+using Services_13M;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +18,7 @@ namespace Servicios
     {
         BLLRol bllRol = new BLLRol();
         BLLFamilia bllFamilia = new BLLFamilia();
-        List<RolModelo55CA> listaRol = new List<RolModelo55CA>();
+        List<RolModelo13M> listaRol = new List<RolModelo13M>();
         BLLPatente bllPatente = new BLLPatente();
 
         public GestionRol()
@@ -29,7 +29,7 @@ namespace Servicios
             btnCancelar.Enabled = false;
             btnAplicar.Enabled = false;
 
-            ServiceSessionManager55CA.getIntancia().Idioma.Suscribir(this);
+            ServiceSessionManager13M.getIntancia().Idioma.Suscribir(this);
             actualizarIdioma();
         }
 
@@ -40,7 +40,7 @@ namespace Servicios
             dgvFamilias.DataSource = null;
             dgvFamilias.DataSource = listaRol;
 
-            var todosLosComponentes = new List<Componente55CA>();
+            var todosLosComponentes = new List<Componente13M>();
 
             todosLosComponentes.AddRange(bllFamilia.ObtenerTodos());
             todosLosComponentes.AddRange(bllPatente.obtenerTodos());
@@ -62,7 +62,7 @@ namespace Servicios
 
         public void actualizarIdioma()
         {
-            var t = ServiceSessionManager55CA.getIntancia().Idioma;
+            var t = ServiceSessionManager13M.getIntancia().Idioma;
 
             this.Text = t.Translate("GestionRol.formTitle");
             label1.Text = t.Translate("GestionRol.labelRoles");
@@ -110,28 +110,28 @@ namespace Servicios
         {
             if (dgvFamilias.CurrentRow != null)
             {
-                RolModelo55CA rolSeleccionado = (RolModelo55CA)dgvFamilias.CurrentRow.DataBoundItem;
+                RolModelo13M rolSeleccionado = (RolModelo13M)dgvFamilias.CurrentRow.DataBoundItem;
                 MostrarArbolDelRol(rolSeleccionado);
             }
         }
 
-        private void MostrarArbolDelRol(RolModelo55CA rol)
+        private void MostrarArbolDelRol(RolModelo13M rol)
         {
             tvPermisosAsignados.Nodes.Clear(); 
             TreeNode nodoRaiz = new TreeNode($"Rol: {rol.Nombre}");
             tvPermisosAsignados.Nodes.Add(nodoRaiz);
 
-            foreach (Componente55CA componente in rol.Permisos)
+            foreach (Componente13M componente in rol.Permisos)
             {
                 TreeNode nodoHijo = new TreeNode(componente.Nombre);
                 nodoHijo.Tag = componente;
                 nodoRaiz.Nodes.Add(nodoHijo);
 
-                if (componente is FamiliaModelo55CA familia)
+                if (componente is FamiliaModelo13M familia)
                 {
                     ConstruirRamasFamilia(nodoHijo, familia); // si es familia, llamamos al método recursivo para abrirla
                 }
-                else if (componente is PermisoModelo55CA patente)
+                else if (componente is PermisoModelo13M patente)
                 {
                     nodoHijo.Text = $"{patente.Nombre}";
                 }
@@ -140,14 +140,14 @@ namespace Servicios
             tvPermisosAsignados.ExpandAll();
         }
 
-        private void ConstruirRamasFamilia(TreeNode nodoPadre, FamiliaModelo55CA familia)
+        private void ConstruirRamasFamilia(TreeNode nodoPadre, FamiliaModelo13M familia)
         {
-            foreach (Componente55CA hijo in familia.obtenerPermisos())
+            foreach (Componente13M hijo in familia.obtenerPermisos())
             {
                 TreeNode nodoHijo = new TreeNode();
                 nodoPadre.Nodes.Add(nodoHijo);
 
-                if (hijo is FamiliaModelo55CA subFamilia)
+                if (hijo is FamiliaModelo13M subFamilia)
                 {
                     nodoHijo.Text = $"{subFamilia.Nombre}";
                     ConstruirRamasFamilia(nodoHijo, subFamilia);
@@ -161,7 +161,7 @@ namespace Servicios
 
         private void btnAplicar_Click(object sender, EventArgs e)
         {
-            var t = ServiceSessionManager55CA.getIntancia().Idioma;
+            var t = ServiceSessionManager13M.getIntancia().Idioma;
             try
             {
                 if (modoActual == ModoOperacionFamilia.Crear)
@@ -180,9 +180,9 @@ namespace Servicios
                         return;
                     }
 
-                    List<Componente55CA> componentesSeleccionados = new List<Componente55CA>();
+                    List<Componente13M> componentesSeleccionados = new List<Componente13M>();
 
-                    foreach (Componente55CA componenteMarcado in checkListPermisosFamilias.CheckedItems)
+                    foreach (Componente13M componenteMarcado in checkListPermisosFamilias.CheckedItems)
                     {
                         componentesSeleccionados.Add(componenteMarcado);
                     }
@@ -206,15 +206,15 @@ namespace Servicios
                         return;
                     }
 
-                    RolModelo55CA rolDestino = (RolModelo55CA)dgvFamilias.CurrentRow.DataBoundItem;
+                    RolModelo13M rolDestino = (RolModelo13M)dgvFamilias.CurrentRow.DataBoundItem;
 
-                    foreach (Componente55CA componenteMarcado in checkListPermisosFamilias.CheckedItems)
+                    foreach (Componente13M componenteMarcado in checkListPermisosFamilias.CheckedItems)
                     {
-                        if (componenteMarcado is PermisoModelo55CA patente)
+                        if (componenteMarcado is PermisoModelo13M patente)
                         {
                             bllRol.AsignarPatente(rolDestino, patente);
                         }
-                        else if (componenteMarcado is FamiliaModelo55CA familiaHija)
+                        else if (componenteMarcado is FamiliaModelo13M familiaHija)
                         {
                             bllRol.AsignarFamilia(rolDestino, familiaHija);
                         }
@@ -231,25 +231,25 @@ namespace Servicios
                         return;
                     }
 
-                    RolModelo55CA rolSeleccionado = (RolModelo55CA)dgvFamilias.CurrentRow.DataBoundItem;
+                    RolModelo13M rolSeleccionado = (RolModelo13M)dgvFamilias.CurrentRow.DataBoundItem;
                     bllRol.EliminarRol(rolSeleccionado.Id);
                     MessageBox.Show(t.Translate("GestionRol.msgRolEliminado"));
                 }
 
                 else if(modoActual == ModoOperacionFamilia.Desasignar)
                 {
-                    RolModelo55CA rolSeleccionado = (RolModelo55CA)dgvFamilias.CurrentRow.DataBoundItem;
-                    Componente55CA componenteAQuitar = (Componente55CA)tvPermisosAsignados.SelectedNode.Tag;
+                    RolModelo13M rolSeleccionado = (RolModelo13M)dgvFamilias.CurrentRow.DataBoundItem;
+                    Componente13M componenteAQuitar = (Componente13M)tvPermisosAsignados.SelectedNode.Tag;
 
                     DialogResult respuesta = MessageBox.Show(t.Translate("GestionRol.msgConfirmarQuitarComponente"), "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (respuesta == DialogResult.Yes)
                     {
-                        if (componenteAQuitar is PermisoModelo55CA patente)
+                        if (componenteAQuitar is PermisoModelo13M patente)
                         {
                             bllRol.DesasignarPatente(rolSeleccionado.Id, patente.Id);
                         }
-                        else if (componenteAQuitar is FamiliaModelo55CA familia)
+                        else if (componenteAQuitar is FamiliaModelo13M familia)
                         {
                             bllRol.DesasignarFamilia(rolSeleccionado.Id, familia.Id);
                         }
@@ -313,7 +313,7 @@ namespace Servicios
 
         private void btnDesasginar_Click(object sender, EventArgs e)
         {
-            var t = ServiceSessionManager55CA.getIntancia().Idioma;
+            var t = ServiceSessionManager13M.getIntancia().Idioma;
             modoActual = ModoOperacionFamilia.Desasignar;
 
             if (dgvFamilias.CurrentRow == null) return;

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DALAcceso55CA
+    public class DALAcceso13M
     {
         private string _stringConnection => ConexionConfigDAL.ObtenerConnectionString();
         public DataTable executeDataTable(string query, Dictionary<string, object> parametros = null)

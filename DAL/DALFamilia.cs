@@ -10,7 +10,7 @@ namespace DAL
 {
     public class DALFamilia
     {
-        DALAcceso55CA dal = new DALAcceso55CA();
+        DALAcceso13M dal = new DALAcceso13M();
 
         public int asignarPatenteAFamilia(int idPatente, int idFamilia)
         {

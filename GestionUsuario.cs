@@ -3,7 +3,7 @@ using BLL;
 using Services;
 using Services.Modelos;
 using Services.Modelos.Idioma;
-using Services_55CA;
+using Services_13M;
 using System;
 using System.CodeDom;
 using System.Collections.Generic;
@@ -22,7 +22,7 @@ namespace Servicios
     public partial class GestionUsuario : Form, IIdiomaObserver
     {
         UsuarioService usuarioService = new UsuarioService();
-        List<UsuarioModelo55CA> listUsuarios = new List<UsuarioModelo55CA>();
+        List<UsuarioModelo13M> listUsuarios = new List<UsuarioModelo13M>();
         BLLRol _bllRol = new BLLRol();
 
         //un enum para que el boton guardar sepa que hacer
@@ -40,7 +40,7 @@ namespace Servicios
             InitializeComponent();
             CargarGrilla();
 
-            ServiceSessionManager55CA.getIntancia().Idioma.Suscribir(this);
+            ServiceSessionManager13M.getIntancia().Idioma.Suscribir(this);
             actualizarIdioma();
         }
 
@@ -82,7 +82,7 @@ namespace Servicios
             listUsuarios = usuarioService.obtenerTodos();
 
             // usuario logueado
-            string dniUsuarioActivo = Services_55CA.ServiceSessionManager55CA.getIntancia().usuarioActivo.DNI;
+            string dniUsuarioActivo = Services_13M.ServiceSessionManager13M.getIntancia().usuarioActivo.DNI;
 
             // para que no se pueda automodificar
             listUsuarios = listUsuarios.Where(u => u.DNI != dniUsuarioActivo).ToList();
@@ -115,7 +115,7 @@ namespace Servicios
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            var t = ServiceSessionManager55CA.getIntancia().Idioma;
+            var t = ServiceSessionManager13M.getIntancia().Idioma;
             if (dgvUsuarios.CurrentRow == null)
             {
                 MessageBox.Show(t.Translate("GestionUsuario.msgSeleccionarUsuario"));
@@ -138,7 +138,7 @@ namespace Servicios
 
                 txtEmail.Text = fila.Cells["Email"].Value.ToString();
 
-                RolModelo55CA rol = (RolModelo55CA)fila.Cells["Rol"].Value;
+                RolModelo13M rol = (RolModelo13M)fila.Cells["Rol"].Value;
 
                 cmbRol.SelectedValue = rol.Id;
 
@@ -177,7 +177,7 @@ namespace Servicios
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            var t = ServiceSessionManager55CA.getIntancia().Idioma;
+            var t = ServiceSessionManager13M.getIntancia().Idioma;
             try
             {
                 if (modoActual == ModoOperacion.Crear)
@@ -187,7 +187,7 @@ namespace Servicios
                     string apellido = txtApellido.Text;
                     string dNI = txtDNI.Text;
 
-                    RolModelo55CA rol = (RolModelo55CA)cmbRol.SelectedItem;
+                    RolModelo13M rol = (RolModelo13M)cmbRol.SelectedItem;
 
                     if (cmbRol.SelectedIndex == -1)
                     {
@@ -223,7 +223,7 @@ namespace Servicios
                     string email = txtEmail.Text;
                     string dNI = txtDNI.Text;
 
-                    RolModelo55CA rol = (RolModelo55CA)cmbRol.SelectedItem;
+                    RolModelo13M rol = (RolModelo13M)cmbRol.SelectedItem;
 
                     usuarioService.ModificarUsuario(dNI, email, rol);
 
@@ -300,7 +300,7 @@ namespace Servicios
 
         private void btnActDesact_Click(object sender, EventArgs e)
         {
-            var t = ServiceSessionManager55CA.getIntancia().Idioma;
+            var t = ServiceSessionManager13M.getIntancia().Idioma;
             try
             {
                 string dniSeleccionado = dgvUsuarios.CurrentRow.Cells["DNI"].Value.ToString();
@@ -323,7 +323,7 @@ namespace Servicios
 
         private void btnDesbloquear_Click(object sender, EventArgs e)
         {
-            var t = ServiceSessionManager55CA.getIntancia().Idioma;
+            var t = ServiceSessionManager13M.getIntancia().Idioma;
 
             modoActual = ModoOperacion.Desbloquear;
 
@@ -343,7 +343,7 @@ namespace Servicios
 
         public void actualizarIdioma()
         {
-            var t = ServiceSessionManager55CA.getIntancia().Idioma;
+            var t = ServiceSessionManager13M.getIntancia().Idioma;
 
             this.Text = t.Translate("GestionUsuario.formTitle");
             gbUsuarios.Text = t.Translate("GestionUsuario.gbUsuarios");

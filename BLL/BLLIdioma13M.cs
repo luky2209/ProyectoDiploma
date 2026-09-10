@@ -9,18 +9,18 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class BLLIdioma55CA
+    public class BLLIdioma13M
     {
-        DALIidioma55CA dal = new DALIidioma55CA();
+        DALIidioma13M dal = new DALIidioma13M();
 
-        public List<Idioma55CA> obtenerTodos()
+        public List<Idioma13M> obtenerTodos()
         {
             DataTable dt = dal.obtenerTodos();
-            List<Idioma55CA> lista = new List<Idioma55CA>();
+            List<Idioma13M> lista = new List<Idioma13M>();
 
             foreach (DataRow row in dt.Rows)
             {
-                lista.Add(new Idioma55CA
+                lista.Add(new Idioma13M
                 {
                     Id = System.Convert.ToInt32(row["Id"]),
                     Nombre = row["Nombre"].ToString()

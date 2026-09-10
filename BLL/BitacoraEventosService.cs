@@ -12,8 +12,8 @@ namespace BLL
 {
     public class BitacoraEventosService
     {
-        DALBitacora55CA dal = new DALBitacora55CA();
-        public void registrarEvento(string dni, string evento, Criticidad55CA criticidad, Modulos55CA modulo)
+        DALBitacora13M dal = new DALBitacora13M();
+        public void registrarEvento(string dni, string evento, Criticidad13M criticidad, Modulos13M modulo)
         { 
             dal.insertarLog(dni, evento, (int)criticidad, (int)modulo, DateTime.Now);
         }

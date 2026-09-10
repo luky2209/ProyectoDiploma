@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class Idioma55CA
+    public class Idioma13M
     {
         public int Id { get; set; }
         public string Nombre { get; set; }

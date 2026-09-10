@@ -2,7 +2,7 @@
 using BLL;
 using Services;
 using Services.Modelos.Idioma;
-using Services_55CA;
+using Services_13M;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,7 +29,7 @@ namespace Servicios
             this.Load += new System.EventHandler(this.AuditoriaBitacora_Load_1);
 
             this.dgvBitacora.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvBitacora_CellFormatting);
-            ServiceSessionManager55CA.getIntancia().Idioma.Suscribir(this);
+            ServiceSessionManager13M.getIntancia().Idioma.Suscribir(this);
             actualizarIdioma();
         }
 
@@ -54,7 +54,7 @@ namespace Servicios
             var listaModulos = new List<object>();
             listaModulos.Add(new { Id = 0, Nombre = "Todos" });
 
-            foreach (Modulos55CA mod in Enum.GetValues(typeof(Modulos55CA)))
+            foreach (Modulos13M mod in Enum.GetValues(typeof(Modulos13M)))
             {
                 listaModulos.Add(new { Id = (int)mod, Nombre = mod.ToString() });
             }
@@ -67,7 +67,7 @@ namespace Servicios
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            var t = ServiceSessionManager55CA.getIntancia().Idioma;
+            var t = ServiceSessionManager13M.getIntancia().Idioma;
             DateTime desde = dtpDesde.Value.Date;
             DateTime hasta = dtpHasta.Value.Date.AddDays(1).AddSeconds(-1);
 
@@ -229,7 +229,7 @@ namespace Servicios
             {
                 if (Int32.TryParse(e.Value.ToString(), out int criticidad))
                 {
-                    e.Value = ((Criticidad55CA)criticidad).ToString();
+                    e.Value = ((Criticidad13M)criticidad).ToString();
                     e.FormattingApplied = true;
                 }
             }
@@ -239,7 +239,7 @@ namespace Servicios
             {
                 if (Int32.TryParse(e.Value.ToString(), out int modulo))
                 {
-                    e.Value = ((Modulos55CA)modulo).ToString();
+                    e.Value = ((Modulos13M)modulo).ToString();
                     e.FormattingApplied = true;
                 }
             }
@@ -247,7 +247,7 @@ namespace Servicios
 
         public void actualizarIdioma()
         {
-            var t = ServiceSessionManager55CA.getIntancia().Idioma;
+            var t = ServiceSessionManager13M.getIntancia().Idioma;
 
             this.Text = t.Translate("AuditoriaBitacora.formTitle");
             label2.Text = t.Translate("AuditoriaBitacora.labelDesde");

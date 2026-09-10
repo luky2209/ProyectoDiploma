@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DALIidioma55CA
+    public class DALIidioma13M
     {
-        DALAcceso55CA acceso = new DALAcceso55CA();
+        DALAcceso13M acceso = new DALAcceso13M();
 
         public DataTable obtenerTodos()
         {

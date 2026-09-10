@@ -1,6 +1,6 @@
 ﻿using BLL;
 using Services.Modelos.Idioma;
-using Services_55CA;
+using Services_13M;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +16,7 @@ namespace Servicios
     public partial class CambiarContraseña : Form, IIdiomaObserver
     {
         UsuarioService _usuarioService = new UsuarioService();
-        ServiceSessionManager55CA instancia = ServiceSessionManager55CA.getIntancia();
+        ServiceSessionManager13M instancia = ServiceSessionManager13M.getIntancia();
         public CambiarContraseña()
         {
             InitializeComponent();
@@ -43,7 +43,7 @@ namespace Servicios
             string passwordActual = txtContraseñaActual.Text;
             string confirmacion = txtConfirmacion.Text;
 
-            var t = ServiceSessionManager55CA.getIntancia().Idioma;
+            var t = ServiceSessionManager13M.getIntancia().Idioma;
 
             try
             {
@@ -58,7 +58,7 @@ namespace Servicios
                         MessageBox.Show(t.Translate("CambiarContraseña.msgExito"));
 
                         // cerrar sesión
-                        ServiceSessionManager55CA.getIntancia().Logout();
+                        ServiceSessionManager13M.getIntancia().Logout();
                         this.Close();
                     }
                 }

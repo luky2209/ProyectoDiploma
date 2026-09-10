@@ -1,7 +1,7 @@
 ﻿using BE;
 using BLL;
 using Services.Modelos.Idioma;
-using Services_55CA;
+using Services_13M;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,13 +19,13 @@ namespace Servicios
     public partial class Login : Form, IIdiomaObserver
     {
         UsuarioService _userService = new UsuarioService();
-        BLLIdioma55CA _idiomaService = new BLLIdioma55CA();
+        BLLIdioma13M _idiomaService = new BLLIdioma13M();
         
 
         public Login()
         {
             InitializeComponent();
-            ServiceSessionManager55CA.getIntancia().Idioma.Suscribir(this);
+            ServiceSessionManager13M.getIntancia().Idioma.Suscribir(this);
 
         }
 
@@ -45,30 +45,31 @@ namespace Servicios
             {
                 bool usaPasswordDefault = _userService.login(username, password);
 
-                int idiomaUsuario = ServiceSessionManager55CA.getIntancia().usuarioActivo.IdIdioma;
+                int idiomaUsuario = ServiceSessionManager13M.getIntancia().usuarioActivo.IdIdioma;
                 string codIdiomaUsuario = idiomaUsuario == 1 ? "es" : "en";
-                ServiceSessionManager55CA.getIntancia().Idioma.CargarIdioma(codIdiomaUsuario);
+                ServiceSessionManager13M.getIntancia().Idioma.CargarIdioma(codIdiomaUsuario);
 
-                bool usuarioOk = DigitoVerificador55CA.VerificarUsuario();
-                bool rolOk = DigitoVerificador55CA.VerificarRol();
-                bool familiaOk = DigitoVerificador55CA.VerificarFamilia();
-                bool patenteOk = DigitoVerificador55CA.VerificarPatente();
+                bool usuarioOk = DigitoVerificador13M.VerificarUsuario();
+                bool rolOk = DigitoVerificador13M.VerificarRol();
+                bool familiaOk = DigitoVerificador13M.VerificarFamilia();
+                bool patenteOk = DigitoVerificador13M.VerificarPatente();
+                bool nadadorOk = DigitoVerificador13M.VerificarNadador();
 
 
                 
-                if (!usuarioOk || !rolOk || !familiaOk || !patenteOk)
+                if (!usuarioOk || !rolOk || !familiaOk || !patenteOk || !nadadorOk)
                 {
-                    if (ServiceSessionManager55CA.getIntancia().usuarioActivo.Rol.Id != 1)
+                    if (ServiceSessionManager13M.getIntancia().usuarioActivo.Rol.Id != 1)
                     {
                         MessageBox.Show("Se encontraron inconsistencias en la base de datos, contactese con un administrador");
                         txtUser.Text = "";
                         txtPassword.Text = "";
-                        ServiceSessionManager55CA.getIntancia().Logout();
+                        ServiceSessionManager13M.getIntancia().Logout();
                         return;
 
                     }
                     this.Hide();
-                    RepararInconsistencias pantalla = new RepararInconsistencias(usuarioOk, rolOk, familiaOk, patenteOk);
+                    RepararInconsistencias pantalla = new RepararInconsistencias(usuarioOk, rolOk, familiaOk, patenteOk, nadadorOk);
                     pantalla.FormClosed += (s, args) => RestaurarIdiomaLogin();
                     pantalla.Show();
                     return;

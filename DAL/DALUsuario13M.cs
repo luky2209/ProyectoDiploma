@@ -10,9 +10,9 @@ using Microsoft.SqlServer.Server;
 
 namespace DAL
 {
-    public class DALUsuario55CA
+    public class DALUsuario13M
     {
-        DALAcceso55CA acceso = new DALAcceso55CA();
+        DALAcceso13M acceso = new DALAcceso13M();
 
         public int InsertarUsuario(string dni, string nom, string ape, string mail, int idRol, string user, string passHash, long dvh)
         {

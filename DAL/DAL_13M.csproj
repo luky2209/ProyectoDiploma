@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1DCE08C7-4239-4595-9712-BAC2BBEC9DE8}</ProjectGuid>
+    <ProjectGuid>{5AFBC41D-C246-4B92-B434-5EE293B75A44}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BE</RootNamespace>
-    <AssemblyName>BE</AssemblyName>
+    <RootNamespace>DAL</RootNamespace>
+    <AssemblyName>DAL</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,20 +32,36 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
+    <Reference Include="System.Data">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enum\Criticidad55CA.cs" />
-    <Compile Include="Enum\Modulos55CA.cs" />
-    <Compile Include="Idioma55CA.cs" />
-    <Compile Include="InstanciaSqlBE.cs" />
+    <Compile Include="ConexionConfigDAL.cs" />
+    <Compile Include="DALAcceso13M.cs" />
+    <Compile Include="DALBackUpRestore13M.cs" />
+    <Compile Include="DALBitacora13M.cs" />
+    <Compile Include="DALDigitoVerificador13M.cs" />
+    <Compile Include="DALFamilia.cs" />
+    <Compile Include="DALIidioma13M.cs" />
+    <Compile Include="PN\DALNadador13M.cs" />
+    <Compile Include="DALPatente.cs" />
+    <Compile Include="DALRol.cs" />
+    <Compile Include="DALUsuario13M.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BE\BE_13M.csproj">
+      <Project>{1dce08c7-4239-4595-9712-bac2bbec9de8}</Project>
+      <Name>BE_13M</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

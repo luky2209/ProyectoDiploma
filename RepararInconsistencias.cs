@@ -1,6 +1,6 @@
 ﻿using BLL;
 using Services.Modelos.Idioma;
-using Services_55CA;
+using Services_13M;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,22 +16,23 @@ namespace Servicios
 {
     public partial class RepararInconsistencias : Form, IIdiomaObserver
     {
-        private bool usuarioOk, rolOk, familiaOk, patenteOk;
+        private bool usuarioOk, rolOk, familiaOk, patenteOk, nadadorOk;
 
         private void btnRecalcular_Click(object sender, EventArgs e)
         {
-            var idioma = ServiceSessionManager55CA.getIntancia().Idioma;
+            var idioma = ServiceSessionManager13M.getIntancia().Idioma;
 
             try
             {
-                if (!usuarioOk) DigitoVerificador55CA.RepararUsuario();
-                if (!rolOk) DigitoVerificador55CA.RepararRol();
-                if (!familiaOk) DigitoVerificador55CA.RepararFamilia();
-                if (!patenteOk) DigitoVerificador55CA.RepararPatente();
+                if (!usuarioOk) DigitoVerificador13M.RepararUsuario();
+                if (!rolOk) DigitoVerificador13M.RepararRol();
+                if (!familiaOk) DigitoVerificador13M.RepararFamilia();
+                if (!patenteOk) DigitoVerificador13M.RepararPatente();
+                if (!nadadorOk) DigitoVerificador13M.RepararNadador();
 
                 MessageBox.Show(idioma.Translate("MsgReparacionExitosa"));
 
-                ServiceSessionManager55CA.getIntancia().Logout();
+                ServiceSessionManager13M.getIntancia().Logout();
 
                 this.Hide();
                 Login login = new Login();
@@ -51,7 +52,7 @@ namespace Servicios
 
         private void btnRestore_Click(object sender, EventArgs e)
         {
-            var idioma = ServiceSessionManager55CA.getIntancia().Idioma;
+            var idioma = ServiceSessionManager13M.getIntancia().Idioma;
 
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
@@ -60,7 +61,7 @@ namespace Servicios
                 {
                     try
                     {
-                        DigitoVerificador55CA.RealizarRestore(ofd.FileName);
+                        DigitoVerificador13M.RealizarRestore(ofd.FileName);
 
                         MessageBox.Show(idioma.Translate("MsgRestoreExitoso"));
                         Application.Exit();
@@ -73,7 +74,7 @@ namespace Servicios
             }
         }
 
-        public RepararInconsistencias(bool usuarioOk, bool rolOk, bool familiaOk, bool patenteOk)
+        public RepararInconsistencias(bool usuarioOk, bool rolOk, bool familiaOk, bool patenteOk, bool nadadorOk)
         {
             InitializeComponent();
 
@@ -81,8 +82,9 @@ namespace Servicios
             this.rolOk = rolOk;
             this.familiaOk = familiaOk;
             this.patenteOk = patenteOk;
+            this.nadadorOk = nadadorOk;
 
-            ServiceSessionManager55CA.getIntancia().Idioma.Suscribir(this);
+            ServiceSessionManager13M.getIntancia().Idioma.Suscribir(this);
 
             actualizarIdioma();
 
@@ -91,7 +93,7 @@ namespace Servicios
 
         public void actualizarIdioma()
         {
-            var idioma = ServiceSessionManager55CA.getIntancia().Idioma;
+            var idioma = ServiceSessionManager13M.getIntancia().Idioma;
 
             this.Text = idioma.Translate("TituloRepararInconsistencias");
             btnRecalcular.Text = idioma.Translate("BtnRecalcular");
@@ -103,7 +105,7 @@ namespace Servicios
 
         private void MostrarTablasConError()
         {
-            var idioma = ServiceSessionManager55CA.getIntancia().Idioma;
+            var idioma = ServiceSessionManager13M.getIntancia().Idioma;
 
             string mensaje = idioma.Translate("MensajeInconsistenciasDetectadas") + "\n";
 
@@ -111,6 +113,7 @@ namespace Servicios
             if (!rolOk) mensaje += "- Rol\n";
             if (!familiaOk) mensaje += "- Familia\n";
             if (!patenteOk) mensaje += "- Patente\n";
+            if (!nadadorOk) mensaje += "- Nadador\n";
 
             lblMensaje.Text = mensaje;
         }

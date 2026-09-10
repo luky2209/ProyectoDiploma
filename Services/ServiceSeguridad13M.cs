@@ -5,9 +5,9 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Services_55CA
+namespace Services_13M
 {
-    public class ServiceSeguridad55CA
+    public class ServiceSeguridad13M
     {
         public static string Hashear(string input)
         {

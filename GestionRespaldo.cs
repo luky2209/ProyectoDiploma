@@ -1,6 +1,6 @@
 ﻿using Services;
 using Services.Modelos.Idioma;
-using Services_55CA;
+using Services_13M;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +15,7 @@ namespace Servicios
 {
     public partial class GestionRespaldo : Form, IIdiomaObserver
     {
-        BackUpRestore55CA serviceBackUpRestore = new BackUpRestore55CA();
+        BackUpRestore13M serviceBackUpRestore = new BackUpRestore13M();
 
         public GestionRespaldo()
         {
@@ -27,7 +27,7 @@ namespace Servicios
         {
             using (FolderBrowserDialog fbd = new FolderBrowserDialog())
             {
-                var t = ServiceSessionManager55CA.getIntancia().Idioma;
+                var t = ServiceSessionManager13M.getIntancia().Idioma;
                 fbd.Description = t.Translate("GestionRespaldo.descSeleccionarCarpetaBackup");
 
                 if (fbd.ShowDialog() == DialogResult.OK)
@@ -39,7 +39,7 @@ namespace Servicios
 
         private void btnRealizarBackUp_Click(object sender, EventArgs e)
         {
-            var t = ServiceSessionManager55CA.getIntancia().Idioma;
+            var t = ServiceSessionManager13M.getIntancia().Idioma;
             try
             {
                 if (string.IsNullOrWhiteSpace(txtRutaBackUp.Text))
@@ -63,7 +63,7 @@ namespace Servicios
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
-                var t = ServiceSessionManager55CA.getIntancia().Idioma;
+                var t = ServiceSessionManager13M.getIntancia().Idioma;
                 ofd.Title = t.Translate("GestionRespaldo.titleSeleccionarBackup");
                 ofd.Filter = "Archivos de Backup SQL (*.bak)|*.bak|Todos los archivos (*.*)|*.*";
 
@@ -76,7 +76,7 @@ namespace Servicios
 
         private void btnRealizarRestore_Click(object sender, EventArgs e)
         {
-            var t = ServiceSessionManager55CA.getIntancia().Idioma;
+            var t = ServiceSessionManager13M.getIntancia().Idioma;
             try
             {
                 if (string.IsNullOrWhiteSpace(txtRutaRestore.Text))
@@ -102,7 +102,7 @@ namespace Servicios
 
         public void actualizarIdioma()
         {
-            var t = ServiceSessionManager55CA.getIntancia().Idioma;
+            var t = ServiceSessionManager13M.getIntancia().Idioma;
 
             this.Text = t.Translate("GestionRespaldo.titulo");
             btnRealizarBackUp.Text = t.Translate("GestionRespaldo.btnRealizarBackup");

@@ -9,7 +9,7 @@ namespace DAL
 {
     public class DALRol
     {
-        DALAcceso55CA _dal = new DALAcceso55CA();
+        DALAcceso13M _dal = new DALAcceso13M();
 
         public DataTable obtenerTodos()
         {

@@ -15,7 +15,7 @@ namespace BLL
         DALFamilia _dal = new DALFamilia();
         DALPatente dalPatente = new DALPatente();
         BitacoraEventosService BLLBit = new BitacoraEventosService();
-        public List<FamiliaModelo55CA> ObtenerTodos()
+        public List<FamiliaModelo13M> ObtenerTodos()
         {
             DataTable dtFamilias = _dal.obtenerTodos();
             DataTable dtPatentes = dalPatente.obtenerTodos();
@@ -30,9 +30,9 @@ namespace BLL
 
             return dictFamilias.Values.ToList();
         }
-        public void CrearFamilia(string nombre, List<Componente55CA> componentes)
+        public void CrearFamilia(string nombre, List<Componente13M> componentes)
         {
-            var idioma = Services_55CA.ServiceSessionManager55CA.getIntancia().Idioma;
+            var idioma = Services_13M.ServiceSessionManager13M.getIntancia().Idioma;
 
             DataTable dtFamilia = _dal.obtenerPorNombre(nombre);
 
@@ -41,13 +41,13 @@ namespace BLL
                 throw new Exception(string.Format(idioma.Translate("ExcNombreYaExiste"), idioma.Translate("TablaFamilia"), nombre));
             }
 
-            FamiliaModelo55CA familia = new FamiliaModelo55CA { Nombre = nombre };
+            FamiliaModelo13M familia = new FamiliaModelo13M { Nombre = nombre };
 
-            foreach (Componente55CA comp in componentes) 
+            foreach (Componente13M comp in componentes) 
             {
                 var permisosActuales = familia.obtenerPermisos();
 
-                if (comp is PermisoModelo55CA patente)
+                if (comp is PermisoModelo13M patente)
                 {
                     if (permisosActuales.Any(p => p.Id == patente.Id))
                     {
@@ -55,7 +55,7 @@ namespace BLL
                     }
                 }
 
-                else if (comp is FamiliaModelo55CA familiaHija)
+                else if (comp is FamiliaModelo13M familiaHija)
                 {
                     var permisosHija = familiaHija.obtenerPermisos();
 
@@ -72,33 +72,33 @@ namespace BLL
             }
 
             int nuevoFamiliaId = _dal.insertarFamilia(nombre);
-            long dvhInicial = Services.DigitoVerificador55CA.CalcularDVH(nuevoFamiliaId.ToString() + nombre);
+            long dvhInicial = Services.DigitoVerificador13M.CalcularDVH(nuevoFamiliaId.ToString() + nombre);
             _dal.ActualizarDVH(nuevoFamiliaId, dvhInicial);
-            Services.DigitoVerificador55CA.ActualizarDVVFamilia();
+            Services.DigitoVerificador13M.ActualizarDVVFamilia();
 
-            string dniAutor = Services_55CA.ServiceSessionManager55CA.getIntancia().usuarioActivo.DNI;
+            string dniAutor = Services_13M.ServiceSessionManager13M.getIntancia().usuarioActivo.DNI;
 
-            foreach (Componente55CA comp in componentes)
+            foreach (Componente13M comp in componentes)
             {
-                if (comp is PermisoModelo55CA patente)
+                if (comp is PermisoModelo13M patente)
                 {
                     _dal.asignarPatenteAFamilia(patente.Id, nuevoFamiliaId);
-                    BLLBit.registrarEvento(dniAutor, $"Asignó la patente {patente.Nombre} a la familia {nombre}.", Criticidad55CA.Alto, Modulos55CA.Perfil);
+                    BLLBit.registrarEvento(dniAutor, $"Asignó la patente {patente.Nombre} a la familia {nombre}.", Criticidad13M.Alto, Modulos13M.Perfil);
                 }
-                else if (comp is FamiliaModelo55CA familiaHija)
+                else if (comp is FamiliaModelo13M familiaHija)
                 {
                     _dal.asignarFamiliaAFamilia(nuevoFamiliaId, familiaHija.Id);
-                    BLLBit.registrarEvento(dniAutor, $"Asignó la familia {familiaHija.Nombre} a la familia {nombre}.", Criticidad55CA.Alto, Modulos55CA.Perfil);
+                    BLLBit.registrarEvento(dniAutor, $"Asignó la familia {familiaHija.Nombre} a la familia {nombre}.", Criticidad13M.Alto, Modulos13M.Perfil);
                 }
             }
 
-            BLLBit.registrarEvento(dniAutor, $"Creo una nueva familia", Criticidad55CA.Alto, Modulos55CA.Perfil);
+            BLLBit.registrarEvento(dniAutor, $"Creo una nueva familia", Criticidad13M.Alto, Modulos13M.Perfil);
 
         }
 
-        public void AsignarPatente(FamiliaModelo55CA familia, PermisoModelo55CA patente)
+        public void AsignarPatente(FamiliaModelo13M familia, PermisoModelo13M patente)
         {
-            var idioma = Services_55CA.ServiceSessionManager55CA.getIntancia().Idioma;
+            var idioma = Services_13M.ServiceSessionManager13M.getIntancia().Idioma;
 
             var permisosAplanados = familia.obtenerPermisos();
 
@@ -108,9 +108,9 @@ namespace BLL
             }
 
             BLLRol bllRol = new BLLRol();
-            List<RolModelo55CA> todosLosRoles = bllRol.ObtenerRolesConJerarquia();
+            List<RolModelo13M> todosLosRoles = bllRol.ObtenerRolesConJerarquia();
 
-            foreach (RolModelo55CA rol in todosLosRoles)
+            foreach (RolModelo13M rol in todosLosRoles)
             {
                 bool rolUsaEstaFamilia = RolUsaFamilia(rol, familia.Id);
 
@@ -127,15 +127,15 @@ namespace BLL
                 }
             }
 
-            string dniAutor = Services_55CA.ServiceSessionManager55CA.getIntancia().usuarioActivo.DNI;
-            BLLBit.registrarEvento(dniAutor, $"Asigno la patente {patente.Nombre} a la familia {familia.Nombre}.", Criticidad55CA.Alto, Modulos55CA.Perfil);
+            string dniAutor = Services_13M.ServiceSessionManager13M.getIntancia().usuarioActivo.DNI;
+            BLLBit.registrarEvento(dniAutor, $"Asigno la patente {patente.Nombre} a la familia {familia.Nombre}.", Criticidad13M.Alto, Modulos13M.Perfil);
 
             _dal.asignarPatenteAFamilia(patente.Id, familia.Id);
         }
 
-        public void AsignarFamilia(FamiliaModelo55CA familiaPadre, FamiliaModelo55CA familiaHija)
+        public void AsignarFamilia(FamiliaModelo13M familiaPadre, FamiliaModelo13M familiaHija)
         {
-            var idioma = Services_55CA.ServiceSessionManager55CA.getIntancia().Idioma;
+            var idioma = Services_13M.ServiceSessionManager13M.getIntancia().Idioma;
 
             if (familiaPadre.Id == familiaHija.Id)
             {
@@ -155,9 +155,9 @@ namespace BLL
             }
 
             BLLRol bllRol = new BLLRol();
-            List<RolModelo55CA> todosLosRoles = bllRol.ObtenerRolesConJerarquia();
+            List<RolModelo13M> todosLosRoles = bllRol.ObtenerRolesConJerarquia();
 
-            foreach (RolModelo55CA rol in todosLosRoles)
+            foreach (RolModelo13M rol in todosLosRoles)
             {
                 bool rolUsaEstaFamilia = RolUsaFamilia(rol, familiaPadre.Id);
 
@@ -176,26 +176,26 @@ namespace BLL
                 }
             }
 
-            string dniAutor = Services_55CA.ServiceSessionManager55CA.getIntancia().usuarioActivo.DNI;
-            BLLBit.registrarEvento(dniAutor, $"Asigno la familia {familiaHija.Nombre} a la familia {familiaPadre.Nombre}.", Criticidad55CA.Alto, Modulos55CA.Perfil);
+            string dniAutor = Services_13M.ServiceSessionManager13M.getIntancia().usuarioActivo.DNI;
+            BLLBit.registrarEvento(dniAutor, $"Asigno la familia {familiaHija.Nombre} a la familia {familiaPadre.Nombre}.", Criticidad13M.Alto, Modulos13M.Perfil);
 
             _dal.asignarFamiliaAFamilia(familiaPadre.Id, familiaHija.Id);
         }
 
         public void EliminarFamilia(int idFamilia)
         {
-            var idioma = Services_55CA.ServiceSessionManager55CA.getIntancia().Idioma;
+            var idioma = Services_13M.ServiceSessionManager13M.getIntancia().Idioma;
 
             if (_dal.tieneDependencias(idFamilia)) 
             {
                 throw new Exception(idioma.Translate("ExcFamiliaConDependencias"));
             }
 
-            string dniAutor = Services_55CA.ServiceSessionManager55CA.getIntancia().usuarioActivo.DNI;
-            BLLBit.registrarEvento(dniAutor, $"Elimino una familia.", Criticidad55CA.Alto, Modulos55CA.Perfil);
+            string dniAutor = Services_13M.ServiceSessionManager13M.getIntancia().usuarioActivo.DNI;
+            BLLBit.registrarEvento(dniAutor, $"Elimino una familia.", Criticidad13M.Alto, Modulos13M.Perfil);
 
             _dal.eliminarFamilia(idFamilia);
-            Services.DigitoVerificador55CA.ActualizarDVVFamilia();
+            Services.DigitoVerificador13M.ActualizarDVVFamilia();
         }
 
        
@@ -205,16 +205,16 @@ namespace BLL
         
 
         #region Verificacion hacia arriba
-        private bool RolUsaFamilia(RolModelo55CA rol, int idFamiliaBuscada)
+        private bool RolUsaFamilia(RolModelo13M rol, int idFamiliaBuscada)
         {
             return BuscarFamiliaEnNodos(rol.Permisos, idFamiliaBuscada);
         }
 
-        private bool BuscarFamiliaEnNodos(IEnumerable<Componente55CA> nodos, int idFamiliaBuscada)
+        private bool BuscarFamiliaEnNodos(IEnumerable<Componente13M> nodos, int idFamiliaBuscada)
         {
             foreach (var nodo in nodos)
             {
-                if (nodo is FamiliaModelo55CA familia)
+                if (nodo is FamiliaModelo13M familia)
                 {
                     // si es la familia que estamos buscando
                     if (familia.Id == idFamiliaBuscada)
@@ -236,12 +236,12 @@ namespace BLL
         #endregion
 
         #region Mapear y Ensamblar
-        private Dictionary<int, FamiliaModelo55CA> MapearFamiliasBase(DataTable dt)
+        private Dictionary<int, FamiliaModelo13M> MapearFamiliasBase(DataTable dt)
         {
-            var diccionario = new Dictionary<int, FamiliaModelo55CA>();
+            var diccionario = new Dictionary<int, FamiliaModelo13M>();
             foreach (DataRow row in dt.Rows)
             {
-                var familia = new FamiliaModelo55CA
+                var familia = new FamiliaModelo13M
                 {
                     Id = Convert.ToInt32(row["Id"]),
                     Nombre = row["Nombre"].ToString()
@@ -253,13 +253,13 @@ namespace BLL
             return diccionario;
         }
 
-        private Dictionary<int, PermisoModelo55CA> MapearPatentesBase(DataTable dt)
+        private Dictionary<int, PermisoModelo13M> MapearPatentesBase(DataTable dt)
         {
-            var diccionario = new Dictionary<int, PermisoModelo55CA>();
+            var diccionario = new Dictionary<int, PermisoModelo13M>();
 
             foreach (DataRow row in dt.Rows)
             {
-                var patente = new PermisoModelo55CA
+                var patente = new PermisoModelo13M
                 {
                     Id = Convert.ToInt32(row["Id"]),
                     Nombre = row["Nombre"].ToString()
@@ -271,7 +271,7 @@ namespace BLL
             return diccionario;
         }
 
-        private void EnsamblarPatentesEnFamilias(Dictionary<int, FamiliaModelo55CA> familias, Dictionary<int, PermisoModelo55CA> patentes, DataTable dtRelaciones)
+        private void EnsamblarPatentesEnFamilias(Dictionary<int, FamiliaModelo13M> familias, Dictionary<int, PermisoModelo13M> patentes, DataTable dtRelaciones)
         {
             foreach (DataRow row in dtRelaciones.Rows)
             {
@@ -285,7 +285,7 @@ namespace BLL
             }
         }
 
-        private void EnsamblarFamiliasEnFamilias(Dictionary<int, FamiliaModelo55CA> familias, DataTable dtRelaciones)
+        private void EnsamblarFamiliasEnFamilias(Dictionary<int, FamiliaModelo13M> familias, DataTable dtRelaciones)
         {
             foreach (DataRow row in dtRelaciones.Rows)
             {

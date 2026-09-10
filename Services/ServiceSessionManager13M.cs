@@ -7,30 +7,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Services_55CA
+namespace Services_13M
 {
-    public sealed class ServiceSessionManager55CA
+    public sealed class ServiceSessionManager13M
     {
-        private ServiceSessionManager55CA() 
+        private ServiceSessionManager13M() 
         {
             Idioma = new IdiomaManager();
         }
 
-        private static ServiceSessionManager55CA _instancia;
+        private static ServiceSessionManager13M _instancia;
 
-        public UsuarioModelo55CA usuarioActivo { get; private set; }
+        public UsuarioModelo13M usuarioActivo { get; private set; }
 
-        public static ServiceSessionManager55CA getIntancia()
+        public static ServiceSessionManager13M getIntancia()
         {
             if( _instancia == null)
             {
-                _instancia = new ServiceSessionManager55CA();
+                _instancia = new ServiceSessionManager13M();
             }
 
             return _instancia;
         }
 
-        public void Login(UsuarioModelo55CA usuario)
+        public void Login(UsuarioModelo13M usuario)
         {
             usuarioActivo = usuario;
         }
@@ -48,10 +48,10 @@ namespace Services_55CA
 
         public bool TienePermiso(string nombrePermiso)
         {
-            List<Componente55CA> todosLosPermisos = usuarioActivo.Rol.ObtenerPermisos();
+            List<Componente13M> todosLosPermisos = usuarioActivo.Rol.ObtenerPermisos();
 
             //recorremos la lista buscando coincidencia por el nombre de la patente
-            foreach (Componente55CA componente in todosLosPermisos)
+            foreach (Componente13M componente in todosLosPermisos)
             {
                 if (string.Equals(componente.Nombre, nombrePermiso, StringComparison.OrdinalIgnoreCase))
                 {

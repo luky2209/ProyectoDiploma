@@ -15,13 +15,13 @@ namespace BLL
 {
     public class UsuarioService
     {
-        DALUsuario55CA dal = new DALUsuario55CA();
+        DALUsuario13M dal = new DALUsuario13M();
         BitacoraEventosService bit = new BitacoraEventosService();
 
-        public List<UsuarioModelo55CA> obtenerTodos()
+        public List<UsuarioModelo13M> obtenerTodos()
         {
             var dt = dal.obtenerTodos();
-            List<UsuarioModelo55CA> lista = new List<UsuarioModelo55CA>();
+            List<UsuarioModelo13M> lista = new List<UsuarioModelo13M>();
 
             foreach (DataRow row in dt.Rows)
             {
@@ -33,12 +33,12 @@ namespace BLL
 
         public bool login(string user, string password)
         {
-            var idioma = Services_55CA.ServiceSessionManager55CA.getIntancia().Idioma;
+            var idioma = Services_13M.ServiceSessionManager13M.getIntancia().Idioma;
 
             var usuario = MapearUsuario(dal.obtenerPorUser(user));
 
             //validaciones
-            if (Services_55CA.ServiceSessionManager55CA.getIntancia().estaLogueado())
+            if (Services_13M.ServiceSessionManager13M.getIntancia().estaLogueado())
             {
                 throw new Exception(idioma.Translate("ExcSesionActiva"));
             }
@@ -71,7 +71,7 @@ namespace BLL
                 }
             }
 
-            string passwordHash = Services_55CA.ServiceSeguridad55CA.Hashear(password);
+            string passwordHash = Services_13M.ServiceSeguridad13M.Hashear(password);
 
             if (usuario.Password != passwordHash)
             {
@@ -82,7 +82,7 @@ namespace BLL
                 if (usuario.Intentos >= 4)
                 {
                     dal.bloquearUsuario(usuario.DNI);
-                    bit.registrarEvento(usuario.DNI, $"Usuario {usuario.User} bloqueado.", Criticidad55CA.Alto, Modulos55CA.Seguridad);
+                    bit.registrarEvento(usuario.DNI, $"Usuario {usuario.User} bloqueado.", Criticidad13M.Alto, Modulos13M.Seguridad);
 
                     throw new Exception(idioma.Translate("ExcCuentaBloqueada"));
                 }
@@ -91,7 +91,7 @@ namespace BLL
             }
             BLLRol gestorRol = new BLLRol();
 
-            List<RolModelo55CA> roles = gestorRol.ObtenerRolesConJerarquia();
+            List<RolModelo13M> roles = gestorRol.ObtenerRolesConJerarquia();
 
             var rolConPermisos = roles.FirstOrDefault(r => r.Id == usuario.Rol.Id);
 
@@ -101,16 +101,16 @@ namespace BLL
             }
 
             //login ok
-            Services_55CA.ServiceSessionManager55CA.getIntancia().Login(usuario);
+            Services_13M.ServiceSessionManager13M.getIntancia().Login(usuario);
 
-            bit.registrarEvento(usuario.DNI, $"Realizo login exitoso.", Criticidad55CA.Medio, Modulos55CA.Usuario);
+            bit.registrarEvento(usuario.DNI, $"Realizo login exitoso.", Criticidad13M.Medio, Modulos13M.Usuario);
 
             dal.reiniciarIntentos(usuario.DNI);
 
             // verificamos si sigue usando password por defecto
             string passwordDefault = GenerarPassword(usuario.Apellido, usuario.DNI);
 
-            string passwordDefaultHash = Services_55CA.ServiceSeguridad55CA.Hashear(passwordDefault);
+            string passwordDefaultHash = Services_13M.ServiceSeguridad13M.Hashear(passwordDefault);
 
             bool usaPasswordDefault =
                 usuario.Password == passwordDefaultHash;
@@ -118,9 +118,9 @@ namespace BLL
             return usaPasswordDefault;
         }
 
-        public void CrearUsuario(string dni, string nombre, string apellido, string email, RolModelo55CA rol)
+        public void CrearUsuario(string dni, string nombre, string apellido, string email, RolModelo13M rol)
         {
-            var idioma = Services_55CA.ServiceSessionManager55CA.getIntancia().Idioma;
+            var idioma = Services_13M.ServiceSessionManager13M.getIntancia().Idioma;
 
 
             if (dal.obtenerPorDNI(dni) != null)
@@ -130,7 +130,7 @@ namespace BLL
 
             string user = GenerarUsuario(nombre, dni);
             string password = GenerarPassword(apellido, dni);
-            string passwordHash = Services_55CA.ServiceSeguridad55CA.Hashear(password);
+            string passwordHash = Services_13M.ServiceSeguridad13M.Hashear(password);
 
             long dvh = CalcularDVHUsuario(
                 dni,
@@ -141,20 +141,20 @@ namespace BLL
                 user,
                 passwordHash
             );
-            Services.DigitoVerificador55CA.ActualizarDVVUsuario();
+            Services.DigitoVerificador13M.ActualizarDVVUsuario();
 
             dal.InsertarUsuario(dni, nombre, apellido, email, rol.Id, user, passwordHash, dvh);
 
-            string dniAutor = Services_55CA.ServiceSessionManager55CA.getIntancia().usuarioActivo.DNI;
+            string dniAutor = Services_13M.ServiceSessionManager13M.getIntancia().usuarioActivo.DNI;
 
-            bit.registrarEvento(dniAutor, "Se creo un usuario nuevo", Criticidad55CA.Medio, Modulos55CA.Usuario);
+            bit.registrarEvento(dniAutor, "Se creo un usuario nuevo", Criticidad13M.Medio, Modulos13M.Usuario);
         }
 
         public void activarDesactivar(string dni)
         {
-            List<UsuarioModelo55CA> todosLosUsuarios = obtenerTodos();
+            List<UsuarioModelo13M> todosLosUsuarios = obtenerTodos();
 
-            UsuarioModelo55CA usuario = todosLosUsuarios.FirstOrDefault(u => u.DNI == dni);
+            UsuarioModelo13M usuario = todosLosUsuarios.FirstOrDefault(u => u.DNI == dni);
 
             string evento = "";
 
@@ -171,35 +171,35 @@ namespace BLL
                 evento = $"Se activó la cuenta del usuario: {usuario.User}";
             }
 
-            string dniAutor = Services_55CA.ServiceSessionManager55CA.getIntancia().usuarioActivo.DNI;
+            string dniAutor = Services_13M.ServiceSessionManager13M.getIntancia().usuarioActivo.DNI;
 
-            bit.registrarEvento(dniAutor, evento, Criticidad55CA.Alto, Modulos55CA.Usuario);
+            bit.registrarEvento(dniAutor, evento, Criticidad13M.Alto, Modulos13M.Usuario);
         }
 
-        public void ModificarUsuario(string dni, string email, RolModelo55CA rol)
+        public void ModificarUsuario(string dni, string email, RolModelo13M rol)
         {
             dal.ModificarUsuario(dni, email, rol.Id);
             RecalcularDVHUsuario(dni);
 
-            string dniAutor = Services_55CA.ServiceSessionManager55CA.getIntancia().usuarioActivo.DNI;
+            string dniAutor = Services_13M.ServiceSessionManager13M.getIntancia().usuarioActivo.DNI;
 
-            bit.registrarEvento(dniAutor, $"Se modificó usuario DNI {dni}", Criticidad55CA.Medio, Modulos55CA.Usuario);
+            bit.registrarEvento(dniAutor, $"Se modificó usuario DNI {dni}", Criticidad13M.Medio, Modulos13M.Usuario);
         }
 
         public bool cambiarPassword(string passwordActual, string passwordNueva)
         {
-            var idioma = Services_55CA.ServiceSessionManager55CA.getIntancia().Idioma;
+            var idioma = Services_13M.ServiceSessionManager13M.getIntancia().Idioma;
 
-            string passwordActualHash = Services_55CA.ServiceSeguridad55CA.Hashear(passwordActual);
+            string passwordActualHash = Services_13M.ServiceSeguridad13M.Hashear(passwordActual);
 
-            UsuarioModelo55CA usuarioActivo = Services_55CA.ServiceSessionManager55CA.getIntancia().usuarioActivo;
+            UsuarioModelo13M usuarioActivo = Services_13M.ServiceSessionManager13M.getIntancia().usuarioActivo;
 
             if (passwordActualHash != usuarioActivo.Password)
             {
                 throw new Exception(idioma.Translate("ExcPasswordActualIncorrecta"));
             }
 
-            string passwordNuevaHash = Services_55CA.ServiceSeguridad55CA.Hashear(passwordNueva);
+            string passwordNuevaHash = Services_13M.ServiceSeguridad13M.Hashear(passwordNueva);
 
             if (passwordActualHash == passwordNuevaHash)
             {
@@ -214,19 +214,19 @@ namespace BLL
 
         }
 
-        private UsuarioModelo55CA MapearUsuario(DataRow row)
+        private UsuarioModelo13M MapearUsuario(DataRow row)
         {
             if (row == null)
             {
                 return null;
             }
-            return new UsuarioModelo55CA
+            return new UsuarioModelo13M
             {
                 DNI = row["DNI"].ToString(),
                 Nombre = row["Nombre"].ToString(),
                 Apellido = row["Apellido"].ToString(),
                 Email = row["Email"].ToString(),
-                Rol = new RolModelo55CA { Id = Convert.ToInt32(row["IdRol"]), Nombre = row["NombreRol"].ToString() },
+                Rol = new RolModelo13M { Id = Convert.ToInt32(row["IdRol"]), Nombre = row["NombreRol"].ToString() },
                 User = row["Username"].ToString(),
                 Password = row["PasswordHash"].ToString(),
                 Intentos = Convert.ToInt32(row["Intentos"]),
@@ -241,7 +241,7 @@ namespace BLL
 
         public void DesbloquearUsuario(string dni)
         {
-            var idioma = Services_55CA.ServiceSessionManager55CA.getIntancia().Idioma;
+            var idioma = Services_13M.ServiceSessionManager13M.getIntancia().Idioma;
 
             var row = dal.obtenerPorDNI(dni);
             var usuario = MapearUsuario(row);
@@ -254,30 +254,30 @@ namespace BLL
 
             // password default
             string nuevaPass = GenerarPassword(usuario.Apellido, usuario.DNI);
-            string nuevaPassHash = Services_55CA.ServiceSeguridad55CA.Hashear(nuevaPass);
+            string nuevaPassHash = Services_13M.ServiceSeguridad13M.Hashear(nuevaPass);
 
             // desbloqueo
             dal.desbloquearUsuario(dni, nuevaPassHash);
             RecalcularDVHUsuario(dni);
 
             // bitácora
-            string dniAutor = Services_55CA.ServiceSessionManager55CA.getIntancia().usuarioActivo.DNI;
+            string dniAutor = Services_13M.ServiceSessionManager13M.getIntancia().usuarioActivo.DNI;
 
             bit.registrarEvento(
                 dniAutor,
                 $"Se desbloqueó el usuario: {usuario.User}",
-                Criticidad55CA.Alto,
-                Modulos55CA.Usuario
+                Criticidad13M.Alto,
+                Modulos13M.Usuario
             );
         }
 
         public void GuardarIdioma(int idIdioma)
         {
-            string dni = Services_55CA.ServiceSessionManager55CA.getIntancia().usuarioActivo.DNI;
+            string dni = Services_13M.ServiceSessionManager13M.getIntancia().usuarioActivo.DNI;
             dal.GuardarIdioma(dni, idIdioma);
             RecalcularDVHUsuario(dni);
 
-            Services_55CA.ServiceSessionManager55CA.getIntancia().usuarioActivo.IdIdioma = idIdioma;
+            Services_13M.ServiceSessionManager13M.getIntancia().usuarioActivo.IdIdioma = idIdioma;
         }
 
         private long CalcularDVHUsuario(
@@ -301,14 +301,14 @@ namespace BLL
                     user +
                     passwordHash;
 
-            return Services.DigitoVerificador55CA.CalcularDVH(cadena);
+            return Services.DigitoVerificador13M.CalcularDVH(cadena);
         }
 
         private void RecalcularDVHUsuario(string dni)
         {
             var row = dal.obtenerPorDNI(dni);
 
-            UsuarioModelo55CA usuario = MapearUsuario(row);
+            UsuarioModelo13M usuario = MapearUsuario(row);
 
             long nuevoDVH = CalcularDVHUsuario(
                 usuario.DNI,
@@ -321,7 +321,7 @@ namespace BLL
             );
 
             dal.ActualizarDVH(dni, nuevoDVH);
-            Services.DigitoVerificador55CA.ActualizarDVVUsuario();
+            Services.DigitoVerificador13M.ActualizarDVVUsuario();
 
         }
 

@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B2FB6397-6033-427B-BB87-FD46A8D06BE8}</ProjectGuid>
+    <ProjectGuid>{960D771D-0546-4FFE-B37E-8D38ADE0BC87}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BLL</RootNamespace>
-    <AssemblyName>BLL</AssemblyName>
+    <RootNamespace>Services</RootNamespace>
+    <AssemblyName>Services</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,7 +32,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,26 +43,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BitacoraEventosService.cs" />
-    <Compile Include="BLLFamilia.cs" />
-    <Compile Include="BLLIdioma55CA.cs" />
-    <Compile Include="BLLPatente.cs" />
-    <Compile Include="BLLRol.cs" />
+    <Compile Include="BackUpRestore13M.cs" />
+    <Compile Include="DigitoVerificador13M.cs" />
+    <Compile Include="IdiomaManager.cs" />
+    <Compile Include="Instalador\ServicioConfiguracionConexion.cs" />
+    <Compile Include="Modelos\BitacoraEventosModelo13M.cs" />
+    <Compile Include="Modelos\CompositeRol\Componente13M.cs" />
+    <Compile Include="Modelos\CompositeRol\FamiliaModelo13M.cs" />
+    <Compile Include="Modelos\CompositeRol\PermisoModelo13M.cs" />
+    <Compile Include="Modelos\CompositeRol\RolModelo13M.cs" />
+    <Compile Include="Modelos\Idioma\IIdiomaObserver.cs" />
+    <Compile Include="Modelos\UsuarioModelo13M.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UsuarioService.cs" />
+    <Compile Include="ServiceSeguridad13M.cs" />
+    <Compile Include="ServiceSessionManager13M.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BE\BE55_CA.csproj">
+    <ProjectReference Include="..\BE\BE_13M.csproj">
       <Project>{1dce08c7-4239-4595-9712-bac2bbec9de8}</Project>
-      <Name>BE55_CA</Name>
+      <Name>BE_13M</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DAL\DAL_55CA.csproj">
+    <ProjectReference Include="..\DAL\DAL_13M.csproj">
       <Project>{5afbc41d-c246-4b92-b434-5ee293b75a44}</Project>
-      <Name>DAL_55CA</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Services\Services_55CA.csproj">
-      <Project>{960d771d-0546-4ffe-b37e-8d38ade0bc87}</Project>
-      <Name>Services_55CA</Name>
+      <Name>DAL_13M</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

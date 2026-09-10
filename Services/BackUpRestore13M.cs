@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class BackUpRestore55CA
+    public class BackUpRestore13M
     {
-        DALBackUpRestore55CA _dal = new DALBackUpRestore55CA();
+        DALBackUpRestore13M _dal = new DALBackUpRestore13M();
         
         public void realizarBackUp(string ruta)
         {
