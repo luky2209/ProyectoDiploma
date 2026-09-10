@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C3724063-F84C-4753-B655-57D87D1B74DD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Servicios</RootNamespace>
+    <AssemblyName>Servicios</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AuditoriaBitacora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AuditoriaBitacora.Designer.cs">
+      <DependentUpon>AuditoriaBitacora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CambiarContraseña.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CambiarContraseña.Designer.cs">
+      <DependentUpon>CambiarContraseña.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion Inicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion Inicial.Designer.cs">
+      <DependentUpon>Configuracion Inicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionFamilia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionFamilia.Designer.cs">
+      <DependentUpon>GestionFamilia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionRespaldo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionRespaldo.Designer.cs">
+      <DependentUpon>GestionRespaldo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionRol.Designer.cs">
+      <DependentUpon>GestionRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionUsuario.Designer.cs">
+      <DependentUpon>GestionUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuPrincipal.Designer.cs">
+      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepararInconsistencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RepararInconsistencias.Designer.cs">
+      <DependentUpon>RepararInconsistencias.cs</DependentUpon>
+    </Compile>
+    <None Include="Scripts\scriptTerceraEntrega.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <EmbeddedResource Include="AuditoriaBitacora.resx">
+      <DependentUpon>AuditoriaBitacora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CambiarContraseña.resx">
+      <DependentUpon>CambiarContraseña.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion Inicial.resx">
+      <DependentUpon>Configuracion Inicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionFamilia.resx">
+      <DependentUpon>GestionFamilia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionRespaldo.resx">
+      <DependentUpon>GestionRespaldo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionRol.resx">
+      <DependentUpon>GestionRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionUsuario.resx">
+      <DependentUpon>GestionUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuPrincipal.resx">
+      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Content Include="Lenguajes\en.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Lenguajes\es.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="RepararInconsistencias.resx">
+      <DependentUpon>RepararInconsistencias.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="BE\BE55_CA.csproj">
+      <Project>{1dce08c7-4239-4595-9712-bac2bbec9de8}</Project>
+      <Name>BE55_CA</Name>
+    </ProjectReference>
+    <ProjectReference Include="BLL\BLL_55CA.csproj">
+      <Project>{b2fb6397-6033-427b-bb87-fd46a8d06be8}</Project>
+      <Name>BLL_55CA</Name>
+    </ProjectReference>
+    <ProjectReference Include="Services\Services_55CA.csproj">
+      <Project>{960d771d-0546-4ffe-b37e-8d38ade0bc87}</Project>
+      <Name>Services_55CA</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

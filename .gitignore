@@ -1,0 +1,10 @@
+# Carpeta de caché de Visual Studio (EL PROBLEMA ACTUAL)
+.vs/
+
+# Carpetas de compilación (No deben subirse)
+bin/
+obj/
+
+# Archivos de usuario
+*.user
+*.suo
