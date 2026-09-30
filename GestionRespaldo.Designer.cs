@@ -52,7 +52,7 @@
             this.buscarCarpetaBackUp.Name = "buscarCarpetaBackUp";
             this.buscarCarpetaBackUp.Size = new System.Drawing.Size(75, 58);
             this.buscarCarpetaBackUp.TabIndex = 1;
-            this.buscarCarpetaBackUp.Text = "🗂️";
+            this.buscarCarpetaBackUp.Text = "...";
             this.buscarCarpetaBackUp.UseVisualStyleBackColor = false;
             this.buscarCarpetaBackUp.Click += new System.EventHandler(this.buscarCarpetaBackUp_Click);
             // 
@@ -93,7 +93,7 @@
             this.buscarCarpetaRestore.Name = "buscarCarpetaRestore";
             this.buscarCarpetaRestore.Size = new System.Drawing.Size(75, 58);
             this.buscarCarpetaRestore.TabIndex = 11;
-            this.buscarCarpetaRestore.Text = "🗂️";
+            this.buscarCarpetaRestore.Text = "...";
             this.buscarCarpetaRestore.UseVisualStyleBackColor = false;
             this.buscarCarpetaRestore.Click += new System.EventHandler(this.buscarCarpetaRestore_Click);
             // 

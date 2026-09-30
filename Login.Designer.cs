@@ -3,12 +3,12 @@
     partial class Login
     {
         /// <summary>
-        /// Variable del diseñador necesaria.
+        /// Variable del disenador necesaria.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Limpiar los recursos que se estén usando.
+        /// Limpiar los recursos que se esten usando.
         /// </summary>
         /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
         protected override void Dispose(bool disposing)
@@ -20,11 +20,11 @@
             base.Dispose(disposing);
         }
 
-        #region Código generado por el Diseñador de Windows Forms
+        #region Codigo generado por el Disenador de Windows Forms
 
         /// <summary>
-        /// Método necesario para admitir el Diseñador. No se puede modificar
-        /// el contenido de este método con el editor de código.
+        /// Metodo necesario para admitir el Disenador. No se puede modificar
+        /// el contenido de este metodo con el editor de codigo.
         /// </summary>
         private void InitializeComponent()
         {
@@ -68,7 +68,7 @@
             this.lblContrasena.Name = "lblContrasena";
             this.lblContrasena.Size = new System.Drawing.Size(110, 18);
             this.lblContrasena.TabIndex = 3;
-            this.lblContrasena.Text = "Contraseña";
+            this.lblContrasena.Text = "Contrasena";
             // 
             // txtPassword
             // 

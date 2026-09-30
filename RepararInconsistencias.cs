@@ -16,7 +16,7 @@ namespace Servicios
 {
     public partial class RepararInconsistencias : Form, IIdiomaObserver
     {
-        private bool usuarioOk, rolOk, familiaOk, patenteOk, nadadorOk;
+        private bool usuarioOk, rolOk, familiaOk, patenteOk, nadadorOk, pruebaOk, torneoOk, torneoPruebaOk, inscripcionOk, resultadoOk;
 
         private void btnRecalcular_Click(object sender, EventArgs e)
         {
@@ -29,6 +29,11 @@ namespace Servicios
                 if (!familiaOk) DigitoVerificador13M.RepararFamilia();
                 if (!patenteOk) DigitoVerificador13M.RepararPatente();
                 if (!nadadorOk) DigitoVerificador13M.RepararNadador();
+                if (!pruebaOk) DigitoVerificador13M.RepararPrueba();
+                if (!torneoOk) DigitoVerificador13M.RepararTorneo();
+                if (!torneoPruebaOk) DigitoVerificador13M.RepararTorneoPrueba();
+                if (!inscripcionOk) DigitoVerificador13M.RepararInscripcion();
+                if (!resultadoOk) DigitoVerificador13M.RepararResultado();
 
                 MessageBox.Show(idioma.Translate("MsgReparacionExitosa"));
 
@@ -74,7 +79,8 @@ namespace Servicios
             }
         }
 
-        public RepararInconsistencias(bool usuarioOk, bool rolOk, bool familiaOk, bool patenteOk, bool nadadorOk)
+        public RepararInconsistencias(bool usuarioOk, bool rolOk, bool familiaOk, bool patenteOk, bool nadadorOk,
+            bool pruebaOk, bool torneoOk, bool torneoPruebaOk, bool inscripcionOk, bool resultadoOk)
         {
             InitializeComponent();
 
@@ -83,6 +89,11 @@ namespace Servicios
             this.familiaOk = familiaOk;
             this.patenteOk = patenteOk;
             this.nadadorOk = nadadorOk;
+            this.pruebaOk = pruebaOk;
+            this.torneoOk = torneoOk;
+            this.torneoPruebaOk = torneoPruebaOk;
+            this.inscripcionOk = inscripcionOk;
+            this.resultadoOk = resultadoOk;
 
             ServiceSessionManager13M.getIntancia().Idioma.Suscribir(this);
 
@@ -114,6 +125,11 @@ namespace Servicios
             if (!familiaOk) mensaje += "- Familia\n";
             if (!patenteOk) mensaje += "- Patente\n";
             if (!nadadorOk) mensaje += "- Nadador\n";
+            if (!pruebaOk) mensaje += "- Prueba\n";
+            if (!torneoOk) mensaje += "- Torneo\n";
+            if (!torneoPruebaOk) mensaje += "- Torneo Prueba\n";
+            if (!inscripcionOk) mensaje += "- Inscripcion\n";
+            if (!resultadoOk) mensaje += "- Resultado\n";
 
             lblMensaje.Text = mensaje;
         }

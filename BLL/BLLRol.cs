@@ -109,12 +109,12 @@ namespace BLL
                 if (comp is PermisoModelo13M patente)
                 {
                     _dal.asignarPatenteARol(patente.Id, nuevoRolId);
-                    bllBitacora.registrarEvento(dniAutor, $"Asignó la patente {patente.Nombre} a el rol {nombre}.", Criticidad13M.Alto, Modulos13M.Perfil);
+                    bllBitacora.registrarEvento(dniAutor, $"Asigno la patente {patente.Nombre} a el rol {nombre}.", Criticidad13M.Alto, Modulos13M.Perfil);
                 }
                 else if (comp is FamiliaModelo13M familiaHija)
                 {
                     _dal.asignarFamiliaARol(familiaHija.Id, nuevoRolId);
-                    bllBitacora.registrarEvento(dniAutor, $"Asignó la familia {familiaHija.Nombre} a el rol {nombre}.", Criticidad13M.Alto, Modulos13M.Perfil);
+                    bllBitacora.registrarEvento(dniAutor, $"Asigno la familia {familiaHija.Nombre} a el rol {nombre}.", Criticidad13M.Alto, Modulos13M.Perfil);
                 }
             }
 
@@ -198,7 +198,7 @@ namespace BLL
 
         
 
-        #region Métodos de Ensamblaje
+        #region Metodos de Ensamblaje
 
         private void EnsamblarPatentesEnRoles(Dictionary<int, RolModelo13M> dictRoles, Dictionary<int, PermisoModelo13M> dictPatentes, DataTable dtRelaciones)
         {

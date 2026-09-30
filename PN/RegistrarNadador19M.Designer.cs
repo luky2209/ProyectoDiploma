@@ -1,4 +1,4 @@
-namespace Servicios
+﻿namespace Servicios
 {
     partial class RegistrarNadador19M
     {
@@ -83,7 +83,7 @@ namespace Servicios
             this.lblLogoApp.Name = "lblLogoApp";
             this.lblLogoApp.Size = new System.Drawing.Size(89, 19);
             this.lblLogoApp.TabIndex = 0;
-            this.lblLogoApp.Text = "AquaGestión";
+            this.lblLogoApp.Text = "AquaGestion";
             // 
             // pnlBotones
             // 
@@ -243,7 +243,7 @@ namespace Servicios
             this.labelCertificado.Name = "labelCertificado";
             this.labelCertificado.Size = new System.Drawing.Size(118, 17);
             this.labelCertificado.TabIndex = 12;
-            this.labelCertificado.Text = "Certificado médico";
+            this.labelCertificado.Text = "Certificado medico";
             // 
             // labelCategoria
             // 
@@ -253,7 +253,7 @@ namespace Servicios
             this.labelCategoria.Name = "labelCategoria";
             this.labelCategoria.Size = new System.Drawing.Size(65, 17);
             this.labelCategoria.TabIndex = 10;
-            this.labelCategoria.Text = "Categoría";
+            this.labelCategoria.Text = "Categoria";
             // 
             // labelEdad
             // 
@@ -314,7 +314,7 @@ namespace Servicios
             this.chkCertificado.Name = "chkCertificado";
             this.chkCertificado.Size = new System.Drawing.Size(60, 21);
             this.chkCertificado.TabIndex = 13;
-            this.chkCertificado.Text = "Al día";
+            this.chkCertificado.Text = "Al dia";
             // 
             // cmbCategoria
             // 

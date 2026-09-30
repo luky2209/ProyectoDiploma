@@ -114,7 +114,6 @@ namespace Servicios
             modoActual = ModoOperacionFamilia.Crear;
 
             groupBox1.Visible = true;
-            txtNombre.Focus();
 
             btAplicar.Enabled = true;
             btCancelar.Enabled = true;
@@ -127,7 +126,7 @@ namespace Servicios
         {
             if (dgvFamilias.CurrentRow == null)
             {
-                MessageBox.Show("Debe seleccionar una Familia de la lista de Familias.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Debe seleccionar una Familia de la lista de Familias.", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

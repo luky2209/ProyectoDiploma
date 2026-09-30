@@ -1,6 +1,6 @@
 ﻿namespace Servicios
 {
-    partial class CambiarContraseña
+    partial class CambiarContrasena
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.txtUser = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtContraseñaActual = new System.Windows.Forms.TextBox();
+            this.txtContrasenaActual = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtConfirmacion = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -70,16 +70,16 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 14);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Contraseña Actual";
+            this.label2.Text = "Contrasena Actual";
             // 
-            // txtContraseñaActual
+            // txtContrasenaActual
             // 
-            this.txtContraseñaActual.Location = new System.Drawing.Point(206, 76);
-            this.txtContraseñaActual.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtContraseñaActual.Name = "txtContraseñaActual";
-            this.txtContraseñaActual.PasswordChar = '*';
-            this.txtContraseñaActual.Size = new System.Drawing.Size(146, 20);
-            this.txtContraseñaActual.TabIndex = 2;
+            this.txtContrasenaActual.Location = new System.Drawing.Point(206, 76);
+            this.txtContrasenaActual.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtContrasenaActual.Name = "txtContrasenaActual";
+            this.txtContrasenaActual.PasswordChar = '*';
+            this.txtContrasenaActual.Size = new System.Drawing.Size(146, 20);
+            this.txtContrasenaActual.TabIndex = 2;
             // 
             // label3
             // 
@@ -91,7 +91,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(152, 14);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Confirmar Contraseña";
+            this.label3.Text = "Confirmar Contrasena";
             // 
             // txtConfirmacion
             // 
@@ -112,7 +112,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(128, 14);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Contraseña Nueva";
+            this.label4.Text = "Contrasena Nueva";
             // 
             // txtNueva
             // 
@@ -137,7 +137,7 @@
             this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // CambiarContraseña
+            // CambiarContrasena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -149,12 +149,12 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtNueva);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtContraseñaActual);
+            this.Controls.Add(this.txtContrasenaActual);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtUser);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "CambiarContraseña";
-            this.Text = "CambiarContraseña";
+            this.Name = "CambiarContrasena";
+            this.Text = "CambiarContrasena";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,7 +165,7 @@
         private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtContraseñaActual;
+        private System.Windows.Forms.TextBox txtContrasenaActual;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtConfirmacion;
         private System.Windows.Forms.Label label4;

@@ -1,4 +1,4 @@
-using BE;
+﻿using BE;
 using BLL;
 using Services;
 using Services.Modelos.Idioma;
@@ -21,7 +21,7 @@ namespace Servicios
         BLLNadador13M _bllNadador = new BLLNadador13M();
         List<Nadador13M> _listNadadores = new List<Nadador13M>();
 
-        // un enum para que el botón guardar sepa si está creando o modificando
+        // un enum para que el boton guardar sepa si esta creando o modificando
         private enum ModoOperacion
         {
             Ninguno,
@@ -44,14 +44,14 @@ namespace Servicios
             actualizarIdioma();
         }
 
-        // Arma la lista de categorías de natación que aparecen en el combo
+        // arma la lista de categorias de natacion que aparecen en el combo
         private void CargarCategorias()
         {
             cmbCategoria.Items.AddRange(new object[] { "Infantil", "Menor", "Cadete", "Juvenil", "Junior", "Senior" });
             cmbCategoria.SelectedIndex = 0;
         }
 
-        // Llena la grilla con todos los nadadores del padrón
+        // llena la grilla con todos los nadadores
         private void CargarGrilla()
         {
             dgvNadadores.AutoGenerateColumns = false;
@@ -63,10 +63,8 @@ namespace Servicios
             dgvNadadores.Columns.Add(new DataGridViewTextBoxColumn { Name = "Apellido", DataPropertyName = "Apellido", HeaderText = "Apellido" });
             dgvNadadores.Columns.Add(new DataGridViewTextBoxColumn { Name = "FechaNacimiento", DataPropertyName = "FechaNacimiento", HeaderText = "Fecha de nacimiento" });
             dgvNadadores.Columns.Add(new DataGridViewTextBoxColumn { Name = "Edad", DataPropertyName = "Edad", HeaderText = "Edad" });
-            dgvNadadores.Columns.Add(new DataGridViewTextBoxColumn { Name = "Categoria", DataPropertyName = "Categoria", HeaderText = "Categoría" });
-            dgvNadadores.Columns.Add(new DataGridViewCheckBoxColumn { Name = "CertificadoMedico", DataPropertyName = "CertificadoMedico", HeaderText = "Certificado médico" });
-
-            dgvNadadores.Columns["FechaNacimiento"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dgvNadadores.Columns.Add(new DataGridViewTextBoxColumn { Name = "Categoria", DataPropertyName = "Categoria", HeaderText = "Categoria" });
+            dgvNadadores.Columns.Add(new DataGridViewCheckBoxColumn { Name = "CertificadoMedico", DataPropertyName = "CertificadoMedico", HeaderText = "Certificado medico" });
 
             _listNadadores = _bllNadador.obtenerTodos();
 
@@ -85,11 +83,8 @@ namespace Servicios
             dtpFechaNacimiento.Value = DateTime.Today.AddYears(-10);
             cmbCategoria.SelectedIndex = 0;
             chkCertificado.Checked = false;
-
-            txtDNI.Focus();
         }
-
-        // Habilita o deshabilita los campos del formulario de datos
+            
         private void HabilitarCampos(bool habilitado)
         {
             txtNombre.Enabled = habilitado;
@@ -100,7 +95,7 @@ namespace Servicios
             chkCertificado.Enabled = habilitado;
         }
 
-        // Pone en los textbox los datos del nadador seleccionado en la grilla
+        // pone en los textbox los datos del nadador seleccionado en la grilla
         private void CargarNadadorEnCampos(Nadador13M nadador)
         {
             txtDNI.Text = nadador.DNI;
@@ -144,7 +139,7 @@ namespace Servicios
             Nadador13M nadador = (Nadador13M)dgvNadadores.CurrentRow.DataBoundItem;
             CargarNadadorEnCampos(nadador);
 
-            // en una modificación el DNI no se puede cambiar (es la identidad del nadador)
+            // se desactiva el campo de dni cuando queremos modificar. 
             txtDNI.Enabled = false;
             HabilitarCampos(true);
 
@@ -160,7 +155,6 @@ namespace Servicios
             {
                 return;
             }
-
             // al tocar una fila se cargan los datos del nadador en los textbox
             Nadador13M nadador = (Nadador13M)dgvNadadores.Rows[e.RowIndex].DataBoundItem;
 
@@ -184,7 +178,6 @@ namespace Servicios
                 t.Translate("RegistrarNadador19M.msgConfirmar"),
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
-
             if (r != DialogResult.Yes)
             {
                 return;
@@ -223,25 +216,22 @@ namespace Servicios
                 DateTime fechaNacimiento = dtpFechaNacimiento.Value.Date;
                 bool certificado = chkCertificado.Checked;
 
-                // validaciones simples antes de guardar
+                // validaciones antes de guardar por las dudas
                 if (dni.Length <= 0 || nombre.Length <= 0 || apellido.Length <= 0 || edadTxt.Length <= 0 || categoria.Length <= 0)
                 {
                     MessageBox.Show(t.Translate("RegistrarNadador19M.msgCamposObligatorios"));
                     return;
                 }
-
                 if (!EsDNIValido(dni))
                 {
                     MessageBox.Show(t.Translate("RegistrarNadador19M.msgDNIInvalido"));
                     return;
                 }
-
                 if (!EsEdadValida(edadTxt))
                 {
                     MessageBox.Show(t.Translate("RegistrarNadador19M.msgEdadInvalida"));
                     return;
                 }
-
                 if (fechaNacimiento >= DateTime.Today)
                 {
                     MessageBox.Show(t.Translate("RegistrarNadador19M.msgFechaInvalida"));
@@ -275,8 +265,6 @@ namespace Servicios
         {
             ResetearFormulario();
         }
-
-        // Vuelve el formulario al estado inicial: sin modo activo y con la grilla renovada
         private void ResetearFormulario()
         {
             modoActual = ModoOperacion.Ninguno;
@@ -291,7 +279,7 @@ namespace Servicios
             CargarGrilla();
         }
 
-        #region Validaciones
+        // validaciones
         private bool EsDNIValido(string dni)
         {
             return Regex.IsMatch(dni, @"^\d{7,8}$");
@@ -302,7 +290,6 @@ namespace Servicios
             int valor;
             return int.TryParse(edad, out valor) && valor >= 1 && valor <= 120;
         }
-        #endregion Validaciones
 
         public void actualizarIdioma()
         {

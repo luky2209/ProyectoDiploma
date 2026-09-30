@@ -1,7 +1,7 @@
 USE [is--servicios]
 GO
 
-/****** Tabla Nadador para el padrón del caso de uso "Registrar Nadador" ******/
+/****** Tabla Nadador para el padron del caso de uso "Registrar Nadador" ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

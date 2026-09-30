@@ -54,7 +54,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(843, 42);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Configuración conexión a la base de datos";
+            this.label1.Text = "Configuracion conexion a la base de datos";
             // 
             // label2
             // 
@@ -65,7 +65,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(755, 25);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Elegí la instancia de SQL Server donde queres instalar / conectarte a la base.";
+            this.label2.Text = "Elegi la instancia de SQL Server donde queres instalar / conectarte a la base.";
             // 
             // label3
             // 

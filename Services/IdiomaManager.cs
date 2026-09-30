@@ -38,12 +38,12 @@ namespace Services
 
             if (!File.Exists(path))
             {
-                throw new FileNotFoundException($"No se encontró el idioma '{codIdioma}'",path);
+                throw new FileNotFoundException($"No se encontro el idioma '{codIdioma}'",path);
             }
                 
             string json = File.ReadAllText(path);
 
-            JavaScriptSerializer serializer = new JavaScriptSerializer(); //Serializador sin usar Paquetes
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
 
             traducciones = serializer.Deserialize<Dictionary<string, string>>(json);
 
@@ -52,7 +52,7 @@ namespace Services
 
         public string Translate(string key)
         {
-            return traducciones.TryGetValue(key, out string value) ? value : key; //toma lo que le pasamos y devuelve su traduccion guardado en el JSON
+            return traducciones.TryGetValue(key, out string value) ? value : key; 
         }
     }
 }

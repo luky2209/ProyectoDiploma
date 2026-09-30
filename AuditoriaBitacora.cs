@@ -106,7 +106,7 @@ namespace Servicios
             Font fontHeader = new Font("Arial", 8, FontStyle.Bold);
 
             
-            e.Graphics.DrawString("Bitácora de Eventos", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, x, y);
+            e.Graphics.DrawString("Bitacora de Eventos", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, x, y);
             y += 40;
 
            

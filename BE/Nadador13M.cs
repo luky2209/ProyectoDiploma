@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +16,15 @@ namespace BE
         public string Categoria { get; set; }
         public bool CertificadoMedico { get; set; }
         public long DVH { get; set; }
+
+        // este texto es el que se ve en el combo de inscripcion "Aguil, Benja - 12345678"
+        public string DescripcionLista
+        {
+            get { return Apellido + ", " + Nombre + " - " + DNI; }
+        }
+        public override string ToString()
+        {
+            return DescripcionLista;
+        }
     }
 }

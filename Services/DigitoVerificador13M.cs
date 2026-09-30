@@ -21,6 +21,10 @@ namespace Services
         static DALFamilia dalFamilia = new DALFamilia();
         static DALPatente dalPatente = new DALPatente();
         static DALNadador13M dalNadador = new DALNadador13M();
+        static DALPrueba13M dalPrueba = new DALPrueba13M();
+        static DALTorneo13M dalTorneo = new DALTorneo13M();
+        static DALInscripcion13M dalInscripcion = new DALInscripcion13M();
+        static DALResultado13M dalResultado = new DALResultado13M();
 
         public static long CalcularDVH(string cadena)
         {
@@ -139,6 +143,96 @@ namespace Services
             }
         }
 
+        private static long CalcularDVHPrueba(DataRow row)
+        {
+            return CalcularDVH(row["IdPrueba"].ToString() + row["Estilo"].ToString() + row["Distancia"].ToString());
+        }
+
+        private static long ObtenerSumaDVHPrueba() { long s = 0; foreach (DataRow r in dalPrueba.obtenerTodas().Rows) s += CalcularDVHPrueba(r); return s; }
+        private static void RepararTodoPrueba()
+        {
+            foreach (DataRow row in dalPrueba.obtenerTodas().Rows)
+            {
+                long g = row["DVH"] == DBNull.Value ? 0 : Convert.ToInt64(row["DVH"]);
+                long c = CalcularDVHPrueba(row);
+                if (g != c) dalPrueba.ActualizarDVH(Convert.ToInt32(row["IdPrueba"]), c);
+            }
+        }
+
+        private static long CalcularDVHTorneo(DataRow row)
+        {
+            string cadena = row["Nombre"].ToString() + Convert.ToDateTime(row["Fecha"]).ToString("yyyyMMdd")
+                + row["Sede"].ToString() + row["Arancel"].ToString() + row["Categorias"].ToString();
+            return CalcularDVH(cadena);
+        }
+
+        private static long ObtenerSumaDVHTorneo() { long s = 0; foreach (DataRow r in dalTorneo.obtenerTodos().Rows) s += CalcularDVHTorneo(r); return s; }
+        private static void RepararTodoTorneo()
+        {
+            foreach (DataRow row in dalTorneo.obtenerTodos().Rows)
+            {
+                long g = row["DVH"] == DBNull.Value ? 0 : Convert.ToInt64(row["DVH"]);
+                long c = CalcularDVHTorneo(row);
+                if (g != c) dalTorneo.ActualizarDVH(Convert.ToInt32(row["CodigoTorneo"]), c);
+            }
+        }
+
+        private static long CalcularDVHTorneoPrueba(DataRow row)
+        {
+            return CalcularDVH(row["CodigoTorneo"].ToString() + row["IdPrueba"].ToString());
+        }
+
+        private static long ObtenerSumaDVHTorneoPrueba() { long s = 0; foreach (DataRow r in dalTorneo.obtenerTodasTorneoPrueba().Rows) s += CalcularDVHTorneoPrueba(r); return s; }
+        private static void RepararTodoTorneoPrueba()
+        {
+            foreach (DataRow row in dalTorneo.obtenerTodasTorneoPrueba().Rows)
+            {
+                long g = row["DVH"] == DBNull.Value ? 0 : Convert.ToInt64(row["DVH"]);
+                long c = CalcularDVHTorneoPrueba(row);
+                if (g != c) dalTorneo.ActualizarDVHTorneoPrueba(Convert.ToInt32(row["CodigoTorneo"]), Convert.ToInt32(row["IdPrueba"]), c);
+            }
+        }
+
+        private static long CalcularDVHInscripcion(DataRow row)
+        {
+            string cadena = row["DNINadador"].ToString() + row["CodigoTorneo"].ToString() + row["IdPrueba"].ToString()
+                + row["Categoria"].ToString() + Convert.ToDateTime(row["FechaInscripcion"]).ToString("yyyyMMdd") + row["Estado"].ToString();
+            return CalcularDVH(cadena);
+        }
+
+        private static long ObtenerSumaDVHInscripcion() { long s = 0; foreach (DataRow r in dalInscripcion.obtenerTodas().Rows) s += CalcularDVHInscripcion(r); return s; }
+        private static void RepararTodoInscripcion()
+        {
+            foreach (DataRow row in dalInscripcion.obtenerTodas().Rows)
+            {
+                long g = row["DVH"] == DBNull.Value ? 0 : Convert.ToInt64(row["DVH"]);
+                long c = CalcularDVHInscripcion(row);
+                if (g != c) dalInscripcion.ActualizarDVH(Convert.ToInt32(row["NumeroInscripcion"]), c);
+            }
+        }
+
+        private static long CalcularDVHResultado(DataRow row)
+        {
+            // un resultado descalificado tiene la posicion en 0, por eso se usa ese valor
+            string posicion = row["Posicion"] == DBNull.Value ? "0" : Convert.ToInt32(row["Posicion"]).ToString();
+
+            string cadena = row["NumeroInscripcion"].ToString() + row["Minutos"].ToString()
+                + row["Segundos"].ToString() + row["Centesimas"].ToString()
+                + row["Descalificado"].ToString() + posicion + row["Premio"].ToString();
+            return CalcularDVH(cadena);
+        }
+
+        private static long ObtenerSumaDVHResultado() { long s = 0; foreach (DataRow r in dalResultado.obtenerTodas().Rows) s += CalcularDVHResultado(r); return s; }
+        private static void RepararTodoResultado()
+        {
+            foreach (DataRow row in dalResultado.obtenerTodas().Rows)
+            {
+                long g = row["DVH"] == DBNull.Value ? 0 : Convert.ToInt64(row["DVH"]);
+                long c = CalcularDVHResultado(row);
+                if (g != c) dalResultado.ActualizarDVH(Convert.ToInt32(row["IdResultado"]), c);
+            }
+        }
+
         private static bool VerificarTabla(string nombreTabla, Func<long> obtenerSuma, Action reparar)
         {
             DataRow filaControl = dalControl.ObtenerFila(nombreTabla);
@@ -168,25 +262,35 @@ namespace Services
         public static bool VerificarFamilia() => VerificarTabla("Familia", ObtenerSumaDVHFamilia, RepararTodoFamilia);
         public static bool VerificarPatente() => VerificarTabla("Patente", ObtenerSumaDVHPatente, RepararTodoPatente);
         public static bool VerificarNadador() => VerificarTabla("Nadador", ObtenerSumaDVHNadador, RepararTodoNadador);
+        public static bool VerificarPrueba() => VerificarTabla("Prueba", ObtenerSumaDVHPrueba, RepararTodoPrueba);
+        public static bool VerificarTorneo() => VerificarTabla("Torneo", ObtenerSumaDVHTorneo, RepararTodoTorneo);
+        public static bool VerificarTorneoPrueba() => VerificarTabla("TorneoPrueba", ObtenerSumaDVHTorneoPrueba, RepararTodoTorneoPrueba);
+        public static bool VerificarInscripcion() => VerificarTabla("Inscripcion", ObtenerSumaDVHInscripcion, RepararTodoInscripcion);
+        public static bool VerificarResultado() => VerificarTabla("Resultado", ObtenerSumaDVHResultado, RepararTodoResultado);
 
         public static void RepararUsuario() { RepararTodoUsuario(); GuardarOActualizarDVV("Usuario", ObtenerSumaDVHUsuario()); Registrar("Usuario"); }
         public static void RepararRol() { RepararTodoRol(); GuardarOActualizarDVV("Rol", ObtenerSumaDVHRol()); Registrar("Rol"); }
         public static void RepararFamilia() { RepararTodoFamilia(); GuardarOActualizarDVV("Familia", ObtenerSumaDVHFamilia()); Registrar("Familia"); }
         public static void RepararPatente() { RepararTodoPatente(); GuardarOActualizarDVV("Patente", ObtenerSumaDVHPatente()); Registrar("Patente"); }
         public static void RepararNadador() { RepararTodoNadador(); GuardarOActualizarDVV("Nadador", ObtenerSumaDVHNadador()); Registrar("Nadador"); }
+        public static void RepararPrueba() { RepararTodoPrueba(); GuardarOActualizarDVV("Prueba", ObtenerSumaDVHPrueba()); Registrar("Prueba"); }
+        public static void RepararTorneo() { RepararTodoTorneo(); GuardarOActualizarDVV("Torneo", ObtenerSumaDVHTorneo()); Registrar("Torneo"); }
+        public static void RepararTorneoPrueba() { RepararTodoTorneoPrueba(); GuardarOActualizarDVV("TorneoPrueba", ObtenerSumaDVHTorneoPrueba()); Registrar("TorneoPrueba"); }
+        public static void RepararInscripcion() { RepararTodoInscripcion(); GuardarOActualizarDVV("Inscripcion", ObtenerSumaDVHInscripcion()); Registrar("Inscripcion"); }
+        public static void RepararResultado() { RepararTodoResultado(); GuardarOActualizarDVV("Resultado", ObtenerSumaDVHResultado()); Registrar("Resultado"); }
 
         public static void RealizarRestore(string ruta) => dalBackup.realizarRestore(ruta);
 
         private static void RegistrarDeteccion(string tabla)
         {
             string dni = Services_13M.ServiceSessionManager13M.getIntancia().usuarioActivo?.DNI ?? "SISTEMA";
-            dalBitacora.insertarLog(dni, $"Se detectó una inconsistencia en la tabla {tabla}.", (int)Criticidad13M.Alto, (int)Modulos13M.Seguridad, DateTime.Now);
+            dalBitacora.insertarLog(dni, $"Se detecto una inconsistencia en la tabla {tabla}.", (int)Criticidad13M.Alto, (int)Modulos13M.Seguridad, DateTime.Now);
         }
 
         private static void Registrar(string tabla)
         {
             string dni = Services_13M.ServiceSessionManager13M.getIntancia().usuarioActivo?.DNI ?? "SISTEMA";
-            dalBitacora.insertarLog(dni, $"Se reparó la tabla {tabla}.", (int)Criticidad13M.Alto, (int)Modulos13M.Seguridad, DateTime.Now);
+            dalBitacora.insertarLog(dni, $"Se reparo la tabla {tabla}.", (int)Criticidad13M.Alto, (int)Modulos13M.Seguridad, DateTime.Now);
         }
 
         public static void ActualizarDVVUsuario() => GuardarOActualizarDVV("Usuario", ObtenerSumaDVHUsuario());
@@ -194,5 +298,10 @@ namespace Services
         public static void ActualizarDVVFamilia() => GuardarOActualizarDVV("Familia", ObtenerSumaDVHFamilia());
         public static void ActualizarDVVPatente() => GuardarOActualizarDVV("Patente", ObtenerSumaDVHPatente());
         public static void ActualizarDVVNadador() => GuardarOActualizarDVV("Nadador", ObtenerSumaDVHNadador());
+        public static void ActualizarDVVPrueba() => GuardarOActualizarDVV("Prueba", ObtenerSumaDVHPrueba());
+        public static void ActualizarDVVTorneo() => GuardarOActualizarDVV("Torneo", ObtenerSumaDVHTorneo());
+        public static void ActualizarDVVTorneoPrueba() => GuardarOActualizarDVV("TorneoPrueba", ObtenerSumaDVHTorneoPrueba());
+        public static void ActualizarDVVInscripcion() => GuardarOActualizarDVV("Inscripcion", ObtenerSumaDVHInscripcion());
+        public static void ActualizarDVVResultado() => GuardarOActualizarDVV("Resultado", ObtenerSumaDVHResultado());
     }
 }

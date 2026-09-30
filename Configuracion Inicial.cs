@@ -76,21 +76,21 @@ namespace Servicios
                 Cursor = Cursors.WaitCursor;
                 ProbarConexion.Enabled = false;
 
-                // Probamos contra "master" (que siempre existe), no contra la base específica,
-                // porque la base todavía puede no estar creada.
+                // Probamos contra "master" (que siempre existe), no contra la base especifica,
+                // porque la base todavia puede no estar creada.
                 var builderPrueba = new System.Data.SqlClient.SqlConnectionStringBuilder(cs) { InitialCatalog = "master" };
                 var (exito, mensajeError) = ServicioConfiguracionConexion.ProbarConexion(builderPrueba.ConnectionString);
 
                 if (exito)
                 {
                     lblEstado.ForeColor = System.Drawing.Color.Green;
-                    lblEstado.Text = "✔ Conexión exitosa.";
+                    lblEstado.Text = "Conexion exitosa.";
                     btnGuardarYContinuar.Enabled = true;
                 }
                 else
                 {
                     lblEstado.ForeColor = System.Drawing.Color.Red;
-                    lblEstado.Text = "✘ " + mensajeError;
+                    lblEstado.Text = mensajeError;
                     btnGuardarYContinuar.Enabled = false;
                 }
             }
@@ -117,8 +117,8 @@ namespace Servicios
                 if (!exito)
                 {
                     MessageBox.Show(
-                        "No se puede guardar una configuración que no conecta correctamente:\n\n" + mensajeError,
-                        "Conexión inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        "No se puede guardar una configuracion que no conecta correctamente:\n\n" + mensajeError,
+                        "Conexion invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -128,7 +128,7 @@ namespace Servicios
                 if (!existeBase)
                 {
                     var respuesta = MessageBox.Show(
-                        $"La base de datos '{nombreBase}' no existe en el servidor seleccionado.\n¿Desea crearla ahora?",
+                        $"La base de datos '{nombreBase}' no existe en el servidor seleccionado.\n?Desea crearla ahora?",
                         "Base de datos no encontrada", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (respuesta == DialogResult.Yes)
@@ -141,7 +141,7 @@ namespace Servicios
 
                 ServicioConfiguracionConexion.GuardarConnectionString(cs);
 
-                MessageBox.Show("Configuración guardada correctamente.", "Éxito",
+                MessageBox.Show("Configuracion guardada correctamente.", "Exito",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 DialogResult = DialogResult.OK;

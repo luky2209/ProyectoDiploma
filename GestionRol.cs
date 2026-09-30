@@ -85,7 +85,6 @@ namespace Servicios
             modoActual = ModoOperacionFamilia.Crear;
 
             groupBox1.Visible = true;
-            txtNombre.Focus();
 
             btnAplicar.Enabled = true;
             btnCrear.Enabled = false;
@@ -129,7 +128,7 @@ namespace Servicios
 
                 if (componente is FamiliaModelo13M familia)
                 {
-                    ConstruirRamasFamilia(nodoHijo, familia); // si es familia, llamamos al método recursivo para abrirla
+                    ConstruirRamasFamilia(nodoHijo, familia); // si es familia, llamamos al metodo recursivo para abrirla
                 }
                 else if (componente is PermisoModelo13M patente)
                 {
@@ -255,7 +254,7 @@ namespace Servicios
                         }
 
                         MessageBox.Show(t.Translate("GestionRol.msgComponenteDesasignado"));
-                        cargarDatos(); // Recargamos la BD para actualizar el árbol
+                        cargarDatos(); // Recargamos la BD para actualizar el arbol
                     }
                 }
 
