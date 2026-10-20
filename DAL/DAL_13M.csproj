@@ -53,7 +53,7 @@
     <Compile Include="DALIidioma13M.cs" />
     <Compile Include="PN\DALClase13M.cs" />
     <Compile Include="PN\DALInscripcionClase13M.cs" />
-    <Compile Include="PN\DALProfesor13M.cs" />
+    <Compile Include="PN\DALAsistencia13M.cs" />    <Compile Include="PN\DALProfesor13M.cs" />
     <Compile Include="PN\DALNadador13M.cs" />
     <Compile Include="PN\DALPrueba13M.cs" />
     <Compile Include="PN\DALTorneo13M.cs" />

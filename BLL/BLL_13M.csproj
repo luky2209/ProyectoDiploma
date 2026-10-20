@@ -46,7 +46,7 @@
     <Compile Include="BLLIdioma13M.cs" />
     <Compile Include="PN\BLLClase13M.cs" />
     <Compile Include="PN\BLLInscripcionClase13M.cs" />
-    <Compile Include="PN\BLLProfesor13M.cs" />
+    <Compile Include="PN\BLLAsistencia13M.cs" />    <Compile Include="PN\BLLProfesor13M.cs" />
     <Compile Include="PN\BLLNadador13M.cs" />
     <Compile Include="PN\BLLTorneo13M.cs" />
     <Compile Include="PN\BLLInscripcion13M.cs" />

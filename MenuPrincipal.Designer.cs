@@ -45,14 +45,23 @@
             this.clasesNatacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlSidebar = new System.Windows.Forms.Panel();
+            this.btnCerrarSesion = new System.Windows.Forms.Button();
+            this.btnCambiarClave = new System.Windows.Forms.Button();
             this.btnConsultarResultados = new System.Windows.Forms.Button();
             this.btnCargarResultados = new System.Windows.Forms.Button();
             this.btnInscripcionTorneo = new System.Windows.Forms.Button();
             this.btnGestionTorneo = new System.Windows.Forms.Button();
             this.btnRegistrarNadador = new System.Windows.Forms.Button();
+            this.btnGestionRespaldo = new System.Windows.Forms.Button();
+            this.btnAuditoria = new System.Windows.Forms.Button();
+            this.btnGestionFamilias = new System.Windows.Forms.Button();
+            this.btnGestionRoles = new System.Windows.Forms.Button();
+            this.btnGestionUsuarios = new System.Windows.Forms.Button();
+            this.lblSeccionAdmin = new System.Windows.Forms.Label();
             this.btnClases = new System.Windows.Forms.Button();
-            this.btnAsignarProfesor = new System.Windows.Forms.Button();
             this.btnRegistrarNadadorClase = new System.Windows.Forms.Button();
+            this.btnAsignarProfesor = new System.Windows.Forms.Button();
+            this.btnRegistrarAsistencia = new System.Windows.Forms.Button();
             this.lblSeccionClases = new System.Windows.Forms.Label();
             this.lblSeccionTorneos = new System.Windows.Forms.Label();
             this.lblSeccionNadadores = new System.Windows.Forms.Label();
@@ -62,14 +71,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblTituloMain = new System.Windows.Forms.Label();
-            this.lblSeccionAdmin = new System.Windows.Forms.Label();
-            this.btnGestionUsuarios = new System.Windows.Forms.Button();
-            this.btnGestionRoles = new System.Windows.Forms.Button();
-            this.btnCerrarSesion = new System.Windows.Forms.Button();
-            this.btnAuditoria = new System.Windows.Forms.Button();
-            this.btnGestionRespaldo = new System.Windows.Forms.Button();
-            this.btnCambiarClave = new System.Windows.Forms.Button();
-            this.btnGestionFamilias = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.pnlSidebar.SuspendLayout();
             this.pnlMain.SuspendLayout();
@@ -226,6 +227,7 @@
             this.pnlSidebar.Controls.Add(this.lblSeccionAdmin);
             this.pnlSidebar.Controls.Add(this.btnClases);
             this.pnlSidebar.Controls.Add(this.btnRegistrarNadadorClase);
+            this.pnlSidebar.Controls.Add(this.btnRegistrarAsistencia);
             this.pnlSidebar.Controls.Add(this.btnAsignarProfesor);
             this.pnlSidebar.Controls.Add(this.lblSeccionClases);
             this.pnlSidebar.Controls.Add(this.lblSeccionTorneos);
@@ -240,6 +242,44 @@
             this.pnlSidebar.TabIndex = 2;
             this.pnlSidebar.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlSidebar_Paint);
             // 
+            // btnCerrarSesion
+            // 
+            this.btnCerrarSesion.BackColor = System.Drawing.Color.Transparent;
+            this.btnCerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrarSesion.FlatAppearance.BorderSize = 0;
+            this.btnCerrarSesion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(58)))), ((int)(((byte)(107)))));
+            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrarSesion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrarSesion.ForeColor = System.Drawing.Color.White;
+            this.btnCerrarSesion.Location = new System.Drawing.Point(22, 716);
+            this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCerrarSesion.Name = "btnCerrarSesion";
+            this.btnCerrarSesion.Size = new System.Drawing.Size(206, 32);
+            this.btnCerrarSesion.TabIndex = 21;
+            this.btnCerrarSesion.Text = "Cerrar Sesion";
+            this.btnCerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCerrarSesion.UseVisualStyleBackColor = false;
+            this.btnCerrarSesion.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
+            // 
+            // btnCambiarClave
+            // 
+            this.btnCambiarClave.BackColor = System.Drawing.Color.Transparent;
+            this.btnCambiarClave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCambiarClave.FlatAppearance.BorderSize = 0;
+            this.btnCambiarClave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(58)))), ((int)(((byte)(107)))));
+            this.btnCambiarClave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCambiarClave.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCambiarClave.ForeColor = System.Drawing.Color.White;
+            this.btnCambiarClave.Location = new System.Drawing.Point(22, 674);
+            this.btnCambiarClave.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCambiarClave.Name = "btnCambiarClave";
+            this.btnCambiarClave.Size = new System.Drawing.Size(206, 28);
+            this.btnCambiarClave.TabIndex = 20;
+            this.btnCambiarClave.Text = "Cambiar Clave";
+            this.btnCambiarClave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCambiarClave.UseVisualStyleBackColor = false;
+            this.btnCambiarClave.Click += new System.EventHandler(this.cambiarClaveToolStripMenuItem_Click);
+            // 
             // btnConsultarResultados
             // 
             this.btnConsultarResultados.BackColor = System.Drawing.Color.Transparent;
@@ -249,7 +289,7 @@
             this.btnConsultarResultados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultarResultados.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultarResultados.ForeColor = System.Drawing.Color.White;
-            this.btnConsultarResultados.Location = new System.Drawing.Point(22, 288);
+            this.btnConsultarResultados.Location = new System.Drawing.Point(22, 267);
             this.btnConsultarResultados.Margin = new System.Windows.Forms.Padding(2);
             this.btnConsultarResultados.Name = "btnConsultarResultados";
             this.btnConsultarResultados.Size = new System.Drawing.Size(206, 32);
@@ -268,7 +308,7 @@
             this.btnCargarResultados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCargarResultados.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCargarResultados.ForeColor = System.Drawing.Color.White;
-            this.btnCargarResultados.Location = new System.Drawing.Point(22, 252);
+            this.btnCargarResultados.Location = new System.Drawing.Point(22, 231);
             this.btnCargarResultados.Margin = new System.Windows.Forms.Padding(2);
             this.btnCargarResultados.Name = "btnCargarResultados";
             this.btnCargarResultados.Size = new System.Drawing.Size(206, 32);
@@ -287,7 +327,7 @@
             this.btnInscripcionTorneo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInscripcionTorneo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInscripcionTorneo.ForeColor = System.Drawing.Color.White;
-            this.btnInscripcionTorneo.Location = new System.Drawing.Point(22, 216);
+            this.btnInscripcionTorneo.Location = new System.Drawing.Point(22, 195);
             this.btnInscripcionTorneo.Margin = new System.Windows.Forms.Padding(2);
             this.btnInscripcionTorneo.Name = "btnInscripcionTorneo";
             this.btnInscripcionTorneo.Size = new System.Drawing.Size(206, 32);
@@ -306,7 +346,7 @@
             this.btnGestionTorneo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGestionTorneo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGestionTorneo.ForeColor = System.Drawing.Color.White;
-            this.btnGestionTorneo.Location = new System.Drawing.Point(22, 180);
+            this.btnGestionTorneo.Location = new System.Drawing.Point(22, 159);
             this.btnGestionTorneo.Margin = new System.Windows.Forms.Padding(2);
             this.btnGestionTorneo.Name = "btnGestionTorneo";
             this.btnGestionTorneo.Size = new System.Drawing.Size(206, 32);
@@ -325,7 +365,7 @@
             this.btnRegistrarNadador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrarNadador.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnRegistrarNadador.ForeColor = System.Drawing.Color.White;
-            this.btnRegistrarNadador.Location = new System.Drawing.Point(22, 109);
+            this.btnRegistrarNadador.Location = new System.Drawing.Point(22, 97);
             this.btnRegistrarNadador.Margin = new System.Windows.Forms.Padding(2);
             this.btnRegistrarNadador.Name = "btnRegistrarNadador";
             this.btnRegistrarNadador.Size = new System.Drawing.Size(110, 32);
@@ -333,6 +373,113 @@
             this.btnRegistrarNadador.Text = "Registrar Nadador";
             this.btnRegistrarNadador.UseVisualStyleBackColor = false;
             this.btnRegistrarNadador.Click += new System.EventHandler(this.RegistrarNadador_Click);
+            // 
+            // btnGestionRespaldo
+            // 
+            this.btnGestionRespaldo.BackColor = System.Drawing.Color.Transparent;
+            this.btnGestionRespaldo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGestionRespaldo.FlatAppearance.BorderSize = 0;
+            this.btnGestionRespaldo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(58)))), ((int)(((byte)(107)))));
+            this.btnGestionRespaldo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGestionRespaldo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGestionRespaldo.ForeColor = System.Drawing.Color.White;
+            this.btnGestionRespaldo.Location = new System.Drawing.Point(22, 638);
+            this.btnGestionRespaldo.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGestionRespaldo.Name = "btnGestionRespaldo";
+            this.btnGestionRespaldo.Size = new System.Drawing.Size(206, 32);
+            this.btnGestionRespaldo.TabIndex = 19;
+            this.btnGestionRespaldo.Text = "Gestion Respaldo";
+            this.btnGestionRespaldo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGestionRespaldo.UseVisualStyleBackColor = false;
+            this.btnGestionRespaldo.Click += new System.EventHandler(this.gestionRespaldoToolStripMenuItem_Click);
+            // 
+            // btnAuditoria
+            // 
+            this.btnAuditoria.BackColor = System.Drawing.Color.Transparent;
+            this.btnAuditoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAuditoria.FlatAppearance.BorderSize = 0;
+            this.btnAuditoria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(58)))), ((int)(((byte)(107)))));
+            this.btnAuditoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAuditoria.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAuditoria.ForeColor = System.Drawing.Color.White;
+            this.btnAuditoria.Location = new System.Drawing.Point(22, 602);
+            this.btnAuditoria.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAuditoria.Name = "btnAuditoria";
+            this.btnAuditoria.Size = new System.Drawing.Size(206, 32);
+            this.btnAuditoria.TabIndex = 18;
+            this.btnAuditoria.Text = "Bitacora Eventos";
+            this.btnAuditoria.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAuditoria.UseVisualStyleBackColor = false;
+            this.btnAuditoria.Click += new System.EventHandler(this.bitacoraEventosToolStripMenuItem_Click);
+            // 
+            // btnGestionFamilias
+            // 
+            this.btnGestionFamilias.BackColor = System.Drawing.Color.Transparent;
+            this.btnGestionFamilias.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGestionFamilias.FlatAppearance.BorderSize = 0;
+            this.btnGestionFamilias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(58)))), ((int)(((byte)(107)))));
+            this.btnGestionFamilias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGestionFamilias.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGestionFamilias.ForeColor = System.Drawing.Color.White;
+            this.btnGestionFamilias.Location = new System.Drawing.Point(22, 566);
+            this.btnGestionFamilias.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGestionFamilias.Name = "btnGestionFamilias";
+            this.btnGestionFamilias.Size = new System.Drawing.Size(206, 32);
+            this.btnGestionFamilias.TabIndex = 17;
+            this.btnGestionFamilias.Text = "Gestion Familia";
+            this.btnGestionFamilias.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGestionFamilias.UseVisualStyleBackColor = false;
+            this.btnGestionFamilias.Click += new System.EventHandler(this.gestionFamiliaToolStripMenuItem_Click);
+            // 
+            // btnGestionRoles
+            // 
+            this.btnGestionRoles.BackColor = System.Drawing.Color.Transparent;
+            this.btnGestionRoles.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGestionRoles.FlatAppearance.BorderSize = 0;
+            this.btnGestionRoles.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(58)))), ((int)(((byte)(107)))));
+            this.btnGestionRoles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGestionRoles.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGestionRoles.ForeColor = System.Drawing.Color.White;
+            this.btnGestionRoles.Location = new System.Drawing.Point(22, 530);
+            this.btnGestionRoles.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGestionRoles.Name = "btnGestionRoles";
+            this.btnGestionRoles.Size = new System.Drawing.Size(206, 32);
+            this.btnGestionRoles.TabIndex = 16;
+            this.btnGestionRoles.Text = "Gestion Rol";
+            this.btnGestionRoles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGestionRoles.UseVisualStyleBackColor = false;
+            this.btnGestionRoles.Click += new System.EventHandler(this.gestionRolToolStripMenuItem_Click);
+            // 
+            // btnGestionUsuarios
+            // 
+            this.btnGestionUsuarios.BackColor = System.Drawing.Color.Transparent;
+            this.btnGestionUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGestionUsuarios.FlatAppearance.BorderSize = 0;
+            this.btnGestionUsuarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(58)))), ((int)(((byte)(107)))));
+            this.btnGestionUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGestionUsuarios.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGestionUsuarios.ForeColor = System.Drawing.Color.White;
+            this.btnGestionUsuarios.Location = new System.Drawing.Point(22, 494);
+            this.btnGestionUsuarios.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGestionUsuarios.Name = "btnGestionUsuarios";
+            this.btnGestionUsuarios.Size = new System.Drawing.Size(206, 32);
+            this.btnGestionUsuarios.TabIndex = 15;
+            this.btnGestionUsuarios.Text = "Gestion Usuarios";
+            this.btnGestionUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGestionUsuarios.UseVisualStyleBackColor = false;
+            this.btnGestionUsuarios.Click += new System.EventHandler(this.gestionUsuariosToolStripMenuItem_Click);
+            // 
+            // lblSeccionAdmin
+            // 
+            this.lblSeccionAdmin.AutoSize = true;
+            this.lblSeccionAdmin.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSeccionAdmin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(192)))), ((int)(((byte)(222)))));
+            this.lblSeccionAdmin.Location = new System.Drawing.Point(24, 475);
+            this.lblSeccionAdmin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSeccionAdmin.Name = "lblSeccionAdmin";
+            this.lblSeccionAdmin.Size = new System.Drawing.Size(102, 17);
+            this.lblSeccionAdmin.TabIndex = 14;
+            this.lblSeccionAdmin.Text = "Administracion";
             // 
             // btnClases
             // 
@@ -343,7 +490,7 @@
             this.btnClases.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClases.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClases.ForeColor = System.Drawing.Color.White;
-            this.btnClases.Location = new System.Drawing.Point(22, 356);
+            this.btnClases.Location = new System.Drawing.Point(22, 331);
             this.btnClases.Margin = new System.Windows.Forms.Padding(2);
             this.btnClases.Name = "btnClases";
             this.btnClases.Size = new System.Drawing.Size(206, 32);
@@ -352,25 +499,6 @@
             this.btnClases.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClases.UseVisualStyleBackColor = false;
             this.btnClases.Click += new System.EventHandler(this.RegistrarClase_Click);
-            // 
-            // btnAsignarProfesor
-            // 
-            this.btnAsignarProfesor.BackColor = System.Drawing.Color.Transparent;
-            this.btnAsignarProfesor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAsignarProfesor.FlatAppearance.BorderSize = 0;
-            this.btnAsignarProfesor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(58)))), ((int)(((byte)(107)))));
-            this.btnAsignarProfesor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAsignarProfesor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAsignarProfesor.ForeColor = System.Drawing.Color.White;
-            this.btnAsignarProfesor.Location = new System.Drawing.Point(22, 392);
-            this.btnAsignarProfesor.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAsignarProfesor.Name = "btnAsignarProfesor";
-            this.btnAsignarProfesor.Size = new System.Drawing.Size(206, 32);
-            this.btnAsignarProfesor.TabIndex = 22;
-            this.btnAsignarProfesor.Text = "Asignar Profesor";
-            this.btnAsignarProfesor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAsignarProfesor.UseVisualStyleBackColor = false;
-            this.btnAsignarProfesor.Click += new System.EventHandler(this.AsignarProfesorClase_Click);
             // 
             // btnRegistrarNadadorClase
             // 
@@ -381,7 +509,7 @@
             this.btnRegistrarNadadorClase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrarNadadorClase.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrarNadadorClase.ForeColor = System.Drawing.Color.White;
-            this.btnRegistrarNadadorClase.Location = new System.Drawing.Point(22, 428);
+            this.btnRegistrarNadadorClase.Location = new System.Drawing.Point(22, 403);
             this.btnRegistrarNadadorClase.Margin = new System.Windows.Forms.Padding(2);
             this.btnRegistrarNadadorClase.Name = "btnRegistrarNadadorClase";
             this.btnRegistrarNadadorClase.Size = new System.Drawing.Size(206, 32);
@@ -391,12 +519,49 @@
             this.btnRegistrarNadadorClase.UseVisualStyleBackColor = false;
             this.btnRegistrarNadadorClase.Click += new System.EventHandler(this.RegistrarNadadorClase_Click);
             // 
+            // btnRegistrarAsistencia
+            //
+            this.btnRegistrarAsistencia.BackColor = System.Drawing.Color.Transparent;
+            this.btnRegistrarAsistencia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrarAsistencia.FlatAppearance.BorderSize = 0;
+            this.btnRegistrarAsistencia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnRegistrarAsistencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrarAsistencia.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnRegistrarAsistencia.ForeColor = System.Drawing.Color.White;
+            this.btnRegistrarAsistencia.Location = new System.Drawing.Point(22, 439);
+            this.btnRegistrarAsistencia.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRegistrarAsistencia.Size = new System.Drawing.Size(206, 32);
+            this.btnRegistrarAsistencia.TabIndex = 24;
+            this.btnRegistrarAsistencia.Text = "Registrar Asistencia";
+            this.btnRegistrarAsistencia.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegistrarAsistencia.UseVisualStyleBackColor = false;
+            this.btnRegistrarAsistencia.Click += new System.EventHandler(this.RegistrarAsistencia_Click);
+            //
+            // btnAsignarProfesor
+            // 
+            this.btnAsignarProfesor.BackColor = System.Drawing.Color.Transparent;
+            this.btnAsignarProfesor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAsignarProfesor.FlatAppearance.BorderSize = 0;
+            this.btnAsignarProfesor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(58)))), ((int)(((byte)(107)))));
+            this.btnAsignarProfesor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAsignarProfesor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsignarProfesor.ForeColor = System.Drawing.Color.White;
+            this.btnAsignarProfesor.Location = new System.Drawing.Point(22, 367);
+            this.btnAsignarProfesor.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAsignarProfesor.Name = "btnAsignarProfesor";
+            this.btnAsignarProfesor.Size = new System.Drawing.Size(206, 32);
+            this.btnAsignarProfesor.TabIndex = 22;
+            this.btnAsignarProfesor.Text = "Asignar Profesor";
+            this.btnAsignarProfesor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAsignarProfesor.UseVisualStyleBackColor = false;
+            this.btnAsignarProfesor.Click += new System.EventHandler(this.AsignarProfesorClase_Click);
+            // 
             // lblSeccionClases
             // 
             this.lblSeccionClases.AutoSize = true;
             this.lblSeccionClases.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSeccionClases.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(192)))), ((int)(((byte)(222)))));
-            this.lblSeccionClases.Location = new System.Drawing.Point(24, 334);
+            this.lblSeccionClases.Location = new System.Drawing.Point(24, 312);
             this.lblSeccionClases.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSeccionClases.Name = "lblSeccionClases";
             this.lblSeccionClases.Size = new System.Drawing.Size(124, 17);
@@ -408,7 +573,7 @@
             this.lblSeccionTorneos.AutoSize = true;
             this.lblSeccionTorneos.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSeccionTorneos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(192)))), ((int)(((byte)(222)))));
-            this.lblSeccionTorneos.Location = new System.Drawing.Point(24, 158);
+            this.lblSeccionTorneos.Location = new System.Drawing.Point(24, 140);
             this.lblSeccionTorneos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSeccionTorneos.Name = "lblSeccionTorneos";
             this.lblSeccionTorneos.Size = new System.Drawing.Size(57, 17);
@@ -420,7 +585,7 @@
             this.lblSeccionNadadores.AutoSize = true;
             this.lblSeccionNadadores.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSeccionNadadores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(192)))), ((int)(((byte)(222)))));
-            this.lblSeccionNadadores.Location = new System.Drawing.Point(24, 90);
+            this.lblSeccionNadadores.Location = new System.Drawing.Point(24, 78);
             this.lblSeccionNadadores.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSeccionNadadores.Name = "lblSeccionNadadores";
             this.lblSeccionNadadores.Size = new System.Drawing.Size(132, 17);
@@ -432,7 +597,7 @@
             this.lblUsuarioSidebar.AutoSize = true;
             this.lblUsuarioSidebar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuarioSidebar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(202)))), ((int)(((byte)(228)))));
-            this.lblUsuarioSidebar.Location = new System.Drawing.Point(55, 57);
+            this.lblUsuarioSidebar.Location = new System.Drawing.Point(65, 47);
             this.lblUsuarioSidebar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsuarioSidebar.Name = "lblUsuarioSidebar";
             this.lblUsuarioSidebar.Size = new System.Drawing.Size(108, 15);
@@ -445,7 +610,7 @@
             this.lblLogoApp.AutoSize = true;
             this.lblLogoApp.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogoApp.ForeColor = System.Drawing.Color.White;
-            this.lblLogoApp.Location = new System.Drawing.Point(22, 10);
+            this.lblLogoApp.Location = new System.Drawing.Point(15, 10);
             this.lblLogoApp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLogoApp.Name = "lblLogoApp";
             this.lblLogoApp.Size = new System.Drawing.Size(175, 37);
@@ -501,151 +666,6 @@
             this.lblTituloMain.Size = new System.Drawing.Size(132, 32);
             this.lblTituloMain.TabIndex = 0;
             this.lblTituloMain.Text = "Dashboard";
-            // 
-            // lblSeccionAdmin
-            // 
-            this.lblSeccionAdmin.AutoSize = true;
-            this.lblSeccionAdmin.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSeccionAdmin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(192)))), ((int)(((byte)(222)))));
-            this.lblSeccionAdmin.Location = new System.Drawing.Point(19, 475);
-            this.lblSeccionAdmin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblSeccionAdmin.Name = "lblSeccionAdmin";
-            this.lblSeccionAdmin.Size = new System.Drawing.Size(102, 17);
-            this.lblSeccionAdmin.TabIndex = 14;
-            this.lblSeccionAdmin.Text = "Administracion";
-            // 
-            // btnGestionUsuarios
-            // 
-            this.btnGestionUsuarios.BackColor = System.Drawing.Color.Transparent;
-            this.btnGestionUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGestionUsuarios.FlatAppearance.BorderSize = 0;
-            this.btnGestionUsuarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(58)))), ((int)(((byte)(107)))));
-            this.btnGestionUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestionUsuarios.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGestionUsuarios.ForeColor = System.Drawing.Color.White;
-            this.btnGestionUsuarios.Location = new System.Drawing.Point(22, 494);
-            this.btnGestionUsuarios.Margin = new System.Windows.Forms.Padding(2);
-            this.btnGestionUsuarios.Name = "btnGestionUsuarios";
-            this.btnGestionUsuarios.Size = new System.Drawing.Size(206, 32);
-            this.btnGestionUsuarios.TabIndex = 15;
-            this.btnGestionUsuarios.Text = "Gestion Usuarios";
-            this.btnGestionUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGestionUsuarios.UseVisualStyleBackColor = false;
-            this.btnGestionUsuarios.Click += new System.EventHandler(this.gestionUsuariosToolStripMenuItem_Click);
-            // 
-            // btnGestionRoles
-            // 
-            this.btnGestionRoles.BackColor = System.Drawing.Color.Transparent;
-            this.btnGestionRoles.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGestionRoles.FlatAppearance.BorderSize = 0;
-            this.btnGestionRoles.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(58)))), ((int)(((byte)(107)))));
-            this.btnGestionRoles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestionRoles.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGestionRoles.ForeColor = System.Drawing.Color.White;
-            this.btnGestionRoles.Location = new System.Drawing.Point(22, 530);
-            this.btnGestionRoles.Margin = new System.Windows.Forms.Padding(2);
-            this.btnGestionRoles.Name = "btnGestionRoles";
-            this.btnGestionRoles.Size = new System.Drawing.Size(206, 32);
-            this.btnGestionRoles.TabIndex = 16;
-            this.btnGestionRoles.Text = "Gestion Rol";
-            this.btnGestionRoles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGestionRoles.UseVisualStyleBackColor = false;
-            this.btnGestionRoles.Click += new System.EventHandler(this.gestionRolToolStripMenuItem_Click);
-            // 
-            // btnCerrarSesion
-            // 
-            this.btnCerrarSesion.BackColor = System.Drawing.Color.Transparent;
-            this.btnCerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrarSesion.FlatAppearance.BorderSize = 0;
-            this.btnCerrarSesion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(58)))), ((int)(((byte)(107)))));
-            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarSesion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrarSesion.ForeColor = System.Drawing.Color.White;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(22, 716);
-            this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(206, 32);
-            this.btnCerrarSesion.TabIndex = 21;
-            this.btnCerrarSesion.Text = "Cerrar Sesion";
-            this.btnCerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrarSesion.UseVisualStyleBackColor = false;
-            this.btnCerrarSesion.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
-            // 
-            // btnAuditoria
-            // 
-            this.btnAuditoria.BackColor = System.Drawing.Color.Transparent;
-            this.btnAuditoria.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAuditoria.FlatAppearance.BorderSize = 0;
-            this.btnAuditoria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(58)))), ((int)(((byte)(107)))));
-            this.btnAuditoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAuditoria.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAuditoria.ForeColor = System.Drawing.Color.White;
-            this.btnAuditoria.Location = new System.Drawing.Point(22, 602);
-            this.btnAuditoria.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAuditoria.Name = "btnAuditoria";
-            this.btnAuditoria.Size = new System.Drawing.Size(206, 32);
-            this.btnAuditoria.TabIndex = 18;
-            this.btnAuditoria.Text = "Bitacora Eventos";
-            this.btnAuditoria.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAuditoria.UseVisualStyleBackColor = false;
-            this.btnAuditoria.Click += new System.EventHandler(this.bitacoraEventosToolStripMenuItem_Click);
-            // 
-            // btnGestionRespaldo
-            // 
-            this.btnGestionRespaldo.BackColor = System.Drawing.Color.Transparent;
-            this.btnGestionRespaldo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGestionRespaldo.FlatAppearance.BorderSize = 0;
-            this.btnGestionRespaldo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(58)))), ((int)(((byte)(107)))));
-            this.btnGestionRespaldo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestionRespaldo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGestionRespaldo.ForeColor = System.Drawing.Color.White;
-            this.btnGestionRespaldo.Location = new System.Drawing.Point(22, 638);
-            this.btnGestionRespaldo.Margin = new System.Windows.Forms.Padding(2);
-            this.btnGestionRespaldo.Name = "btnGestionRespaldo";
-            this.btnGestionRespaldo.Size = new System.Drawing.Size(206, 32);
-            this.btnGestionRespaldo.TabIndex = 19;
-            this.btnGestionRespaldo.Text = "Gestion Respaldo";
-            this.btnGestionRespaldo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGestionRespaldo.UseVisualStyleBackColor = false;
-            this.btnGestionRespaldo.Click += new System.EventHandler(this.gestionRespaldoToolStripMenuItem_Click);
-            // 
-            // btnCambiarClave
-            // 
-            this.btnCambiarClave.BackColor = System.Drawing.Color.Transparent;
-            this.btnCambiarClave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCambiarClave.FlatAppearance.BorderSize = 0;
-            this.btnCambiarClave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(58)))), ((int)(((byte)(107)))));
-            this.btnCambiarClave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCambiarClave.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCambiarClave.ForeColor = System.Drawing.Color.White;
-            this.btnCambiarClave.Location = new System.Drawing.Point(22, 674);
-            this.btnCambiarClave.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCambiarClave.Name = "btnCambiarClave";
-            this.btnCambiarClave.Size = new System.Drawing.Size(206, 28);
-            this.btnCambiarClave.TabIndex = 20;
-            this.btnCambiarClave.Text = "Cambiar Clave";
-            this.btnCambiarClave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCambiarClave.UseVisualStyleBackColor = false;
-            this.btnCambiarClave.Click += new System.EventHandler(this.cambiarClaveToolStripMenuItem_Click);
-            // 
-            // btnGestionFamilias
-            // 
-            this.btnGestionFamilias.BackColor = System.Drawing.Color.Transparent;
-            this.btnGestionFamilias.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGestionFamilias.FlatAppearance.BorderSize = 0;
-            this.btnGestionFamilias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(58)))), ((int)(((byte)(107)))));
-            this.btnGestionFamilias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestionFamilias.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGestionFamilias.ForeColor = System.Drawing.Color.White;
-            this.btnGestionFamilias.Location = new System.Drawing.Point(22, 566);
-            this.btnGestionFamilias.Margin = new System.Windows.Forms.Padding(2);
-            this.btnGestionFamilias.Name = "btnGestionFamilias";
-            this.btnGestionFamilias.Size = new System.Drawing.Size(206, 32);
-            this.btnGestionFamilias.TabIndex = 17;
-            this.btnGestionFamilias.Text = "Gestion Familia";
-            this.btnGestionFamilias.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGestionFamilias.UseVisualStyleBackColor = false;
-            this.btnGestionFamilias.Click += new System.EventHandler(this.gestionFamiliaToolStripMenuItem_Click);
             // 
             // MenuPrincipal
             // 
@@ -706,6 +726,7 @@
         private System.Windows.Forms.Button btnClases;
         private System.Windows.Forms.Button btnAsignarProfesor;
         private System.Windows.Forms.Button btnRegistrarNadadorClase;
+        private System.Windows.Forms.Button btnRegistrarAsistencia;
         private System.Windows.Forms.Label lblTituloMain;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;

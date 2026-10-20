@@ -26,6 +26,7 @@ namespace Servicios
         public MenuPrincipal()
         {
             InitializeComponent();
+
             configurarAcceso();
             AplicarPermisosSidebar();
             CargarSubItemsIdioma();
@@ -37,6 +38,12 @@ namespace Servicios
         private void RegistrarNadadorClase_Click(object sender, EventArgs e)
         {
             RegistrarNadadorClase19M form = new RegistrarNadadorClase19M();
+            form.Show();
+        }
+
+        private void RegistrarAsistencia_Click(object sender, EventArgs e)
+        {
+            RegistrarAsistencia19M form = new RegistrarAsistencia19M();
             form.Show();
         }
 
@@ -242,6 +249,7 @@ namespace Servicios
             btnCargarResultados.Text = t.Translate("MenuPrincipal.btnCargarResultados");
             btnConsultarResultados.Text = t.Translate("MenuPrincipal.btnConsultarResultados");
             btnRegistrarNadadorClase.Text = t.Translate("MenuPrincipal.btnRegistrarNadadorClase");
+            btnRegistrarAsistencia.Text = t.Translate("MenuPrincipal.btnRegistrarAsistencia");
             btnClases.Text = t.Translate("MenuPrincipal.btnClases");
             btnAsignarProfesor.Text = t.Translate("MenuPrincipal.btnAsignarProfesor");
             btnGestionUsuarios.Text = t.Translate("MenuPrincipal.menuGestionUsuarios");

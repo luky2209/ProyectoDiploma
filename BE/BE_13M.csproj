@@ -47,7 +47,7 @@
     <Compile Include="InstanciaSqlBE.cs" />
     <Compile Include="Clase13M.cs" />
     <Compile Include="InscripcionClase13M.cs" />
-    <Compile Include="Profesor13M.cs" />
+    <Compile Include="Asistencia13M.cs" />    <Compile Include="Profesor13M.cs" />
     <Compile Include="Nadador13M.cs" />
     <Compile Include="Prueba13M.cs" />
     <Compile Include="Resultado13M.cs" />
