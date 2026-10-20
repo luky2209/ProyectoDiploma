@@ -61,7 +61,6 @@ namespace Servicios
             txtEmail.Clear();
 
             cmbRol.SelectedIndex = 0;
-            txtNombre.Focus();
         }
 
         private void CargarGrilla()

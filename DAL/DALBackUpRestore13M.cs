@@ -12,8 +12,6 @@ namespace DAL
     {
         private DALAcceso13M _dal = new DALAcceso13M();
         private string _nombreDB = "is--servicios";
-        //private readonly string _stringConnectionOriginal = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=is--servicios;Integrated Security=True";
-        private readonly string _stringConnectionOriginal = "Data Source=LAPTOP-8BNKG482\\SQLEXPRESS;Initial Catalog=is--servicios;Integrated Security=True";
 
         public void realizarBackUp(string ruta)
         {
@@ -31,7 +29,13 @@ namespace DAL
 
         public void realizarRestore(string ruta)
         {
-            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder(_stringConnectionOriginal);
+            string connectionConfigurada = ConexionConfigDAL.ObtenerConnectionString();
+            if (string.IsNullOrEmpty(connectionConfigurada))
+            {
+                throw new Exception("No hay configuracion de conexion guardada. Revise el archivo de configuracion de la aplicacion.");
+            }
+
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder(connectionConfigurada);
             builder.InitialCatalog = "master"; // si no apuntamos a la master falla
             string stringConnectionMaster = builder.ConnectionString;
 

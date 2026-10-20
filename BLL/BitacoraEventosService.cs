@@ -18,7 +18,6 @@ namespace BLL
             dal.insertarLog(dni, evento, (int)criticidad, (int)modulo, DateTime.Now);
         }
 
-
         public DataTable obtenerUltimos3Dias()
         {
             DateTime desde = DateTime.Now.AddDays(-3);

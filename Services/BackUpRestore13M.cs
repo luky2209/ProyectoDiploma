@@ -35,7 +35,7 @@ namespace Services
 
             if (Path.GetExtension(ruta).ToLower() != ".bak")
             {
-                throw new Exception("El archivo seleccionado no tiene un formato válido de backup (.bak).");
+                throw new Exception("El archivo seleccionado no tiene un formato valido de backup (.bak).");
             }
                 
 

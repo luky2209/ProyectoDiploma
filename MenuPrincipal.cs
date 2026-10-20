@@ -32,18 +32,63 @@ namespace Servicios
 
             ServiceSessionManager13M.getIntancia().Idioma.Suscribir(this);
             actualizarIdioma();
-
         }
 
-        // Abre el formulario para registrar un nadador nuevo en el padrón
+        private void RegistrarNadadorClase_Click(object sender, EventArgs e)
+        {
+            RegistrarNadadorClase19M form = new RegistrarNadadorClase19M();
+            form.Show();
+        }
+
         private void RegistrarNadador_Click(object sender, EventArgs e)
         {
             RegistrarNadador19M form = new RegistrarNadador19M();
             form.Show();
         }
 
-        // Copia los permisos de los menús a los botones de la barra lateral
-        // para que cada opción quede habilitada o deshabilitada igual que en el menú.
+        private void RegistrarClase_Click(object sender, EventArgs e)
+        {
+            RegistrarClase19M form = new RegistrarClase19M();
+            form.Show();
+        }
+
+        private void AsignarProfesorClase_Click(object sender, EventArgs e)
+        {
+            AsignarProfesorClase19M form = new AsignarProfesorClase19M();
+            form.Show();
+        }
+
+        private void clasesNatacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RegistrarClase_Click(sender, e);
+        }
+
+        private void GestionTorneo_Click(object sender, EventArgs e)
+        {
+            GestionTorneo19M form = new GestionTorneo19M();
+            form.Show();
+        }
+
+        private void InscripcionTorneo_Click(object sender, EventArgs e)
+        {
+            InscripcionTorneo19M form = new InscripcionTorneo19M();
+            form.Show();
+        }
+
+        private void CargarResultados_Click(object sender, EventArgs e)
+        {
+            CargarResultados19M form = new CargarResultados19M();
+            form.Show();
+        }
+
+        private void ConsultarResultados_Click(object sender, EventArgs e)
+        {
+            ConsultarResultados19M form = new ConsultarResultados19M();
+            form.Show();
+        }
+
+        // Copia los permisos de los menus a los botones de la barra lateral
+        // para que cada opcion quede habilitada o deshabilitada igual que en el menu
         private void AplicarPermisosSidebar()
         {
             btnGestionUsuarios.Enabled = gestionUsuariosToolStripMenuItem.Enabled;
@@ -53,6 +98,13 @@ namespace Servicios
             btnGestionRespaldo.Enabled = gestionRespaldoToolStripMenuItem.Enabled;
             btnCambiarClave.Enabled = cambiarClaveToolStripMenuItem.Enabled;
             btnCerrarSesion.Enabled = cerrarSesionToolStripMenuItem.Enabled;
+
+            // los botones de dominio no tienen un menu equivalente, por eso se piden sus permisos
+            btnRegistrarNadador.Enabled = ServiceSessionManager13M.getIntancia().TienePermiso("Gestion Nadador");
+            btnGestionTorneo.Enabled = ServiceSessionManager13M.getIntancia().TienePermiso("Gestion Torneo");
+            btnInscripcionTorneo.Enabled = ServiceSessionManager13M.getIntancia().TienePermiso("Inscripcion Torneo");
+            btnCargarResultados.Enabled = ServiceSessionManager13M.getIntancia().TienePermiso("Cargar Resultados");
+            btnConsultarResultados.Enabled = ServiceSessionManager13M.getIntancia().TienePermiso("Consultar Resultados");
         }
         private void CargarSubItemsIdioma()
         {
@@ -79,14 +131,14 @@ namespace Servicios
             var item = (ToolStripMenuItem)sender;
             var idiomaSeleccionado = (Idioma13M)item.Tag;
 
-            // Guardar en BD y sesión
+            // Guardar en BD y sesion
             _userService.GuardarIdioma(idiomaSeleccionado.Id);
 
             // Aplicar idioma globalmente
             string cod = idiomaSeleccionado.Id == 1 ? "es" : "en";
             ServiceSessionManager13M.getIntancia().Idioma.CargarIdioma(cod);
 
-            // Actualizar checks del submenú
+            // Actualizar checks del submenu
             foreach (ToolStripMenuItem subItem in idiomaToolStripMenuItem.DropDownItems)
             {
                 subItem.Checked = subItem.Tag == item.Tag;
@@ -111,7 +163,7 @@ namespace Servicios
 
         private void cambiarClaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CambiarContraseña form = new CambiarContraseña();
+            CambiarContrasena form = new CambiarContrasena();
             form.Show();
         }
 
@@ -175,8 +227,9 @@ namespace Servicios
             ayudaToolStripMenuItem.Text = t.Translate("MenuPrincipal.menuAyuda");
             idiomaToolStripMenuItem.Text = t.Translate("MenuPrincipal.menuIdioma");
             gestionRespaldoToolStripMenuItem.Text = t.Translate("MenuPrincipal.menuRespaldo");
+            clasesNatacionToolStripMenuItem.Text = t.Translate("MenuPrincipal.menuClases");
 
-            // textos de la barra lateral del nuevo diseño
+            // textos de la barra lateral del nuevo diseno
             lblTituloMain.Text = t.Translate("MenuPrincipal.dashboardTitle");
             lblUsuarioSidebar.Text = string.Format(t.Translate("MenuPrincipal.labelBienvenido"), usuarioActual.Nombre, usuarioActual.Apellido);
             lblSeccionNadadores.Text = t.Translate("MenuPrincipal.seccionNadadores");
@@ -184,8 +237,13 @@ namespace Servicios
             lblSeccionClases.Text = t.Translate("MenuPrincipal.seccionClases");
             lblSeccionAdmin.Text = t.Translate("MenuPrincipal.seccionAdmin");
             btnRegistrarNadador.Text = t.Translate("MenuPrincipal.btnRegistrarNadador");
-            btnTorneos.Text = t.Translate("MenuPrincipal.btnTorneos");
+            btnGestionTorneo.Text = t.Translate("MenuPrincipal.btnGestionTorneo");
+            btnInscripcionTorneo.Text = t.Translate("MenuPrincipal.btnInscripcionTorneo");
+            btnCargarResultados.Text = t.Translate("MenuPrincipal.btnCargarResultados");
+            btnConsultarResultados.Text = t.Translate("MenuPrincipal.btnConsultarResultados");
+            btnRegistrarNadadorClase.Text = t.Translate("MenuPrincipal.btnRegistrarNadadorClase");
             btnClases.Text = t.Translate("MenuPrincipal.btnClases");
+            btnAsignarProfesor.Text = t.Translate("MenuPrincipal.btnAsignarProfesor");
             btnGestionUsuarios.Text = t.Translate("MenuPrincipal.menuGestionUsuarios");
             btnGestionRoles.Text = t.Translate("MenuPrincipal.menuGestionRol");
             btnGestionFamilias.Text = t.Translate("MenuPrincipal.menuGestionFamilia");
@@ -224,6 +282,11 @@ namespace Servicios
         }
 
         private void pnlSidebar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblUsuarioSidebar_Click(object sender, EventArgs e)
         {
 
         }

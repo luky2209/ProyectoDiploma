@@ -11,6 +11,11 @@ namespace BE.Enum
         Usuario = 1,
         Seguridad = 2,
         Perfil = 3,
-        Nadador = 4
+        Nadador = 4,
+        Torneo = 5,
+        Prueba = 6,
+        Inscripcion = 7,
+        Resultado = 8,
+        Clase = 9
     }
 }

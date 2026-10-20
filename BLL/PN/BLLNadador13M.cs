@@ -1,4 +1,4 @@
-using BE;
+﻿using BE;
 using BE.Enum;
 using DAL;
 using Services.Modelos;
@@ -29,6 +29,11 @@ namespace BLL
             return lista;
         }
 
+        public Nadador13M obtenerPorDNI(string dni)
+        {
+            return MapearNadador(_dal.obtenerPorDNI(dni));
+        }
+
         public void CrearNadador(string dni, string nombre, string apellido, DateTime fechaNacimiento, int edad, string categoria, bool certificadoMedico)
         {
             var idioma = Services_13M.ServiceSessionManager13M.getIntancia().Idioma;
@@ -47,7 +52,7 @@ namespace BLL
 
             string dniAutor = Services_13M.ServiceSessionManager13M.getIntancia().usuarioActivo.DNI;
 
-            _bit.registrarEvento(dniAutor, $"Se registró el nadador DNI {dni}.", Criticidad13M.Medio, Modulos13M.Nadador);
+            _bit.registrarEvento(dniAutor, $"Se registro el nadador DNI {dni}.", Criticidad13M.Medio, Modulos13M.Nadador);
         }
 
         public void ModificarNadador(string dni, string nombre, string apellido, DateTime fechaNacimiento, int edad, string categoria, bool certificadoMedico)
@@ -58,7 +63,7 @@ namespace BLL
 
             string dniAutor = Services_13M.ServiceSessionManager13M.getIntancia().usuarioActivo.DNI;
 
-            _bit.registrarEvento(dniAutor, $"Se modificó el nadador DNI {dni}.", Criticidad13M.Medio, Modulos13M.Nadador);
+            _bit.registrarEvento(dniAutor, $"Se modifico el nadador DNI {dni}.", Criticidad13M.Medio, Modulos13M.Nadador);
         }
 
         public void EliminarNadador(string dni)
@@ -69,7 +74,7 @@ namespace BLL
 
             string dniAutor = Services_13M.ServiceSessionManager13M.getIntancia().usuarioActivo.DNI;
 
-            _bit.registrarEvento(dniAutor, $"Se eliminó el nadador DNI {dni}.", Criticidad13M.Medio, Modulos13M.Nadador);
+            _bit.registrarEvento(dniAutor, $"Se elimino el nadador DNI {dni}.", Criticidad13M.Medio, Modulos13M.Nadador);
         }
 
         private Nadador13M MapearNadador(DataRow row)

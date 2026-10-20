@@ -62,7 +62,7 @@ namespace BLL
             {
                 TimeSpan tiempo = DateTime.Now - usuario.UltimoIntentoFallido.Value;
 
-                // si pasaron más de 30 minutos se reinicia
+                // si pasaron mas de 30 minutos se reinicia
                 if (tiempo.TotalMinutes >= 30)
                 {
                     dal.reiniciarIntentos(usuario.DNI);
@@ -162,13 +162,13 @@ namespace BLL
             {
                 dal.DesactivarUsuario(dni);
                 RecalcularDVHUsuario(dni);
-                evento = $"Se desactivó la cuenta del usuario: {usuario.User}";
+                evento = $"Se desactivo la cuenta del usuario: {usuario.User}";
             }
             else
             {
                 dal.ActivarUsuario(dni);
                 RecalcularDVHUsuario(dni);
-                evento = $"Se activó la cuenta del usuario: {usuario.User}";
+                evento = $"Se activo la cuenta del usuario: {usuario.User}";
             }
 
             string dniAutor = Services_13M.ServiceSessionManager13M.getIntancia().usuarioActivo.DNI;
@@ -183,7 +183,7 @@ namespace BLL
 
             string dniAutor = Services_13M.ServiceSessionManager13M.getIntancia().usuarioActivo.DNI;
 
-            bit.registrarEvento(dniAutor, $"Se modificó usuario DNI {dni}", Criticidad13M.Medio, Modulos13M.Usuario);
+            bit.registrarEvento(dniAutor, $"Se modifico usuario DNI {dni}", Criticidad13M.Medio, Modulos13M.Usuario);
         }
 
         public bool cambiarPassword(string passwordActual, string passwordNueva)
@@ -260,12 +260,12 @@ namespace BLL
             dal.desbloquearUsuario(dni, nuevaPassHash);
             RecalcularDVHUsuario(dni);
 
-            // bitácora
+            // bitacora
             string dniAutor = Services_13M.ServiceSessionManager13M.getIntancia().usuarioActivo.DNI;
 
             bit.registrarEvento(
                 dniAutor,
-                $"Se desbloqueó el usuario: {usuario.User}",
+                $"Se desbloqueo el usuario: {usuario.User}",
                 Criticidad13M.Alto,
                 Modulos13M.Usuario
             );

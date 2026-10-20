@@ -83,12 +83,12 @@ namespace BLL
                 if (comp is PermisoModelo13M patente)
                 {
                     _dal.asignarPatenteAFamilia(patente.Id, nuevoFamiliaId);
-                    BLLBit.registrarEvento(dniAutor, $"Asignó la patente {patente.Nombre} a la familia {nombre}.", Criticidad13M.Alto, Modulos13M.Perfil);
+                    BLLBit.registrarEvento(dniAutor, $"Asigno la patente {patente.Nombre} a la familia {nombre}.", Criticidad13M.Alto, Modulos13M.Perfil);
                 }
                 else if (comp is FamiliaModelo13M familiaHija)
                 {
                     _dal.asignarFamiliaAFamilia(nuevoFamiliaId, familiaHija.Id);
-                    BLLBit.registrarEvento(dniAutor, $"Asignó la familia {familiaHija.Nombre} a la familia {nombre}.", Criticidad13M.Alto, Modulos13M.Perfil);
+                    BLLBit.registrarEvento(dniAutor, $"Asigno la familia {familiaHija.Nombre} a la familia {nombre}.", Criticidad13M.Alto, Modulos13M.Perfil);
                 }
             }
 
@@ -116,7 +116,7 @@ namespace BLL
 
                 if (rolUsaEstaFamilia)
                 {
-                    // si el rol usa la familia, sacamos sus patentes aplanadas para ver si ya tiene la patente por otra vía
+                    // si el rol usa la familia, sacamos sus patentes aplanadas para ver si ya tiene la patente por otra via
                     var permisosDelRol = rol.ObtenerPermisos();
                     bool rolYaTienePatente = permisosDelRol.Any(p => p.Id == patente.Id);
 
@@ -165,7 +165,7 @@ namespace BLL
                 {
                     var permisosDelRol = rol.ObtenerPermisos();
 
-                    // evaluamos si las patentes aplanadas de la familia hija generarían choque
+                    // evaluamos si las patentes aplanadas de la familia hija generarian choque
                     foreach (var patenteAportada in permisosHija)
                     {
                         if (permisosDelRol.Any(p => p.Id == patenteAportada.Id))

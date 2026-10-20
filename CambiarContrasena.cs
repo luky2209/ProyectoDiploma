@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace Servicios
 {
-    public partial class CambiarContraseña : Form, IIdiomaObserver
+    public partial class CambiarContrasena : Form, IIdiomaObserver
     {
         UsuarioService _usuarioService = new UsuarioService();
         ServiceSessionManager13M instancia = ServiceSessionManager13M.getIntancia();
-        public CambiarContraseña()
+        public CambiarContrasena()
         {
             InitializeComponent();
             txtUser.Text = instancia.usuarioActivo.User;
@@ -29,18 +29,18 @@ namespace Servicios
         {
             var t = instancia.Idioma;
 
-            this.Text = t.Translate("CambiarContraseña.formTitle");
-            label1.Text = t.Translate("CambiarContraseña.labelUser");
-            label2.Text = t.Translate("CambiarContraseña.labelContraseñaActual");
-            label4.Text = t.Translate("CambiarContraseña.labelContraseñaNueva");
-            label3.Text = t.Translate("CambiarContraseña.labelConfirmar");
-            btnAceptar.Text = t.Translate("CambiarContraseña.btnConfirmar");
+            this.Text = t.Translate("CambiarContrasena.formTitle");
+            label1.Text = t.Translate("CambiarContrasena.labelUser");
+            label2.Text = t.Translate("CambiarContrasena.labelContrasenaActual");
+            label4.Text = t.Translate("CambiarContrasena.labelContrasenaNueva");
+            label3.Text = t.Translate("CambiarContrasena.labelConfirmar");
+            btnAceptar.Text = t.Translate("CambiarContrasena.btnConfirmar");
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             string passwordNueva = txtNueva.Text;
-            string passwordActual = txtContraseñaActual.Text;
+            string passwordActual = txtContrasenaActual.Text;
             string confirmacion = txtConfirmacion.Text;
 
             var t = ServiceSessionManager13M.getIntancia().Idioma;
@@ -49,15 +49,15 @@ namespace Servicios
             {
                 if (passwordNueva != confirmacion)
                 {
-                    MessageBox.Show(t.Translate("CambiarContraseña.msgNoCoinciden"));
+                    MessageBox.Show(t.Translate("CambiarContrasena.msgNoCoinciden"));
                 }
                 else
                 {
                     if(_usuarioService.cambiarPassword(passwordActual, passwordNueva))
         {
-                        MessageBox.Show(t.Translate("CambiarContraseña.msgExito"));
+                        MessageBox.Show(t.Translate("CambiarContrasena.msgExito"));
 
-                        // cerrar sesión
+                        // cerrar sesion
                         ServiceSessionManager13M.getIntancia().Logout();
                         this.Close();
                     }
@@ -66,7 +66,7 @@ namespace Servicios
             }
             catch (Exception ex)
             {
-                MessageBox.Show(t.Translate("CambiarContraseña.msgError") + ex.Message);
+                MessageBox.Show(t.Translate("CambiarContrasena.msgError") + ex.Message);
                 return;
             }
         }

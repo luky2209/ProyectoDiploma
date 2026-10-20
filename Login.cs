@@ -54,10 +54,19 @@ namespace Servicios
                 bool familiaOk = DigitoVerificador13M.VerificarFamilia();
                 bool patenteOk = DigitoVerificador13M.VerificarPatente();
                 bool nadadorOk = DigitoVerificador13M.VerificarNadador();
+                bool pruebaOk = DigitoVerificador13M.VerificarPrueba();
+                bool torneoOk = DigitoVerificador13M.VerificarTorneo();
+                bool torneoPruebaOk = DigitoVerificador13M.VerificarTorneoPrueba();
+                bool inscripcionOk = DigitoVerificador13M.VerificarInscripcion();
+                bool resultadoOk = DigitoVerificador13M.VerificarResultado();
+                bool claseOk = DigitoVerificador13M.VerificarClase();
+                bool inscripcionClaseOk = DigitoVerificador13M.VerificarInscripcionClase();
+                bool profesorOk = DigitoVerificador13M.VerificarProfesor();
 
 
-                
-                if (!usuarioOk || !rolOk || !familiaOk || !patenteOk || !nadadorOk)
+
+                if (!usuarioOk || !rolOk || !familiaOk || !patenteOk || !nadadorOk ||
+                    !pruebaOk || !torneoOk || !torneoPruebaOk || !inscripcionOk || !resultadoOk || !claseOk || !inscripcionClaseOk || !profesorOk)
                 {
                     if (ServiceSessionManager13M.getIntancia().usuarioActivo.Rol.Id != 1)
                     {
@@ -69,7 +78,7 @@ namespace Servicios
 
                     }
                     this.Hide();
-                    RepararInconsistencias pantalla = new RepararInconsistencias(usuarioOk, rolOk, familiaOk, patenteOk, nadadorOk);
+                    RepararInconsistencias pantalla = new RepararInconsistencias(usuarioOk, rolOk, familiaOk, patenteOk, nadadorOk, pruebaOk, torneoOk, torneoPruebaOk, inscripcionOk, resultadoOk, claseOk, inscripcionClaseOk, profesorOk);
                     pantalla.FormClosed += (s, args) => RestaurarIdiomaLogin();
                     pantalla.Show();
                     return;
@@ -84,7 +93,7 @@ namespace Servicios
 
                 if (usaPasswordDefault)
                 {
-                    CambiarContraseña form = new CambiarContraseña();
+                    CambiarContrasena form = new CambiarContrasena();
                     form.FormClosed += (s, args) => RestaurarIdiomaLogin();
                     form.Show();
                 }
