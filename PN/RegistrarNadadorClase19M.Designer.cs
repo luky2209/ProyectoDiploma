@@ -66,7 +66,7 @@
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
             this.lblTitulo.Location = new System.Drawing.Point(26, 33);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(340, 32);
+            this.lblTitulo.Size = new System.Drawing.Size(297, 32);
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "Registrar Nadador a Clase";
             // 
@@ -100,6 +100,66 @@
             this.gbClase.TabStop = false;
             this.gbClase.Text = "Clase";
             // 
+            // txtCupoClase
+            // 
+            this.txtCupoClase.BackColor = System.Drawing.Color.White;
+            this.txtCupoClase.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtCupoClase.Location = new System.Drawing.Point(660, 61);
+            this.txtCupoClase.Name = "txtCupoClase";
+            this.txtCupoClase.ReadOnly = true;
+            this.txtCupoClase.Size = new System.Drawing.Size(150, 25);
+            this.txtCupoClase.TabIndex = 7;
+            // 
+            // lblCupoClase
+            // 
+            this.lblCupoClase.AutoSize = true;
+            this.lblCupoClase.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblCupoClase.Location = new System.Drawing.Point(590, 64);
+            this.lblCupoClase.Name = "lblCupoClase";
+            this.lblCupoClase.Size = new System.Drawing.Size(42, 19);
+            this.lblCupoClase.TabIndex = 6;
+            this.lblCupoClase.Text = "Cupo";
+            // 
+            // txtNivelClase
+            // 
+            this.txtNivelClase.BackColor = System.Drawing.Color.White;
+            this.txtNivelClase.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtNivelClase.Location = new System.Drawing.Point(400, 61);
+            this.txtNivelClase.Name = "txtNivelClase";
+            this.txtNivelClase.ReadOnly = true;
+            this.txtNivelClase.Size = new System.Drawing.Size(150, 25);
+            this.txtNivelClase.TabIndex = 5;
+            // 
+            // lblNivelClase
+            // 
+            this.lblNivelClase.AutoSize = true;
+            this.lblNivelClase.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblNivelClase.Location = new System.Drawing.Point(330, 64);
+            this.lblNivelClase.Name = "lblNivelClase";
+            this.lblNivelClase.Size = new System.Drawing.Size(39, 19);
+            this.lblNivelClase.TabIndex = 4;
+            this.lblNivelClase.Text = "Nivel";
+            // 
+            // txtRangoEtarioClase
+            // 
+            this.txtRangoEtarioClase.BackColor = System.Drawing.Color.White;
+            this.txtRangoEtarioClase.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtRangoEtarioClase.Location = new System.Drawing.Point(150, 61);
+            this.txtRangoEtarioClase.Name = "txtRangoEtarioClase";
+            this.txtRangoEtarioClase.ReadOnly = true;
+            this.txtRangoEtarioClase.Size = new System.Drawing.Size(120, 25);
+            this.txtRangoEtarioClase.TabIndex = 3;
+            // 
+            // lblRangoEtarioClase
+            // 
+            this.lblRangoEtarioClase.AutoSize = true;
+            this.lblRangoEtarioClase.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblRangoEtarioClase.Location = new System.Drawing.Point(20, 64);
+            this.lblRangoEtarioClase.Name = "lblRangoEtarioClase";
+            this.lblRangoEtarioClase.Size = new System.Drawing.Size(87, 19);
+            this.lblRangoEtarioClase.TabIndex = 2;
+            this.lblRangoEtarioClase.Text = "Rango etario";
+            // 
             // cmbClase
             // 
             this.cmbClase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -116,69 +176,9 @@
             this.labelClase.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.labelClase.Location = new System.Drawing.Point(20, 28);
             this.labelClase.Name = "labelClase";
-            this.labelClase.Size = new System.Drawing.Size(48, 19);
+            this.labelClase.Size = new System.Drawing.Size(41, 19);
             this.labelClase.TabIndex = 0;
             this.labelClase.Text = "Clase";
-            // 
-            // txtRangoEtarioClase
-            // 
-            this.txtRangoEtarioClase.BackColor = System.Drawing.Color.White;
-            this.txtRangoEtarioClase.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtRangoEtarioClase.Location = new System.Drawing.Point(150, 61);
-            this.txtRangoEtarioClase.Name = "txtRangoEtarioClase";
-            this.txtRangoEtarioClase.ReadOnly = true;
-            this.txtRangoEtarioClase.Size = new System.Drawing.Size(120, 26);
-            this.txtRangoEtarioClase.TabIndex = 3;
-            // 
-            // lblRangoEtarioClase
-            // 
-            this.lblRangoEtarioClase.AutoSize = true;
-            this.lblRangoEtarioClase.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblRangoEtarioClase.Location = new System.Drawing.Point(20, 64);
-            this.lblRangoEtarioClase.Name = "lblRangoEtarioClase";
-            this.lblRangoEtarioClase.Size = new System.Drawing.Size(86, 19);
-            this.lblRangoEtarioClase.TabIndex = 2;
-            this.lblRangoEtarioClase.Text = "Rango etario";
-            // 
-            // txtNivelClase
-            // 
-            this.txtNivelClase.BackColor = System.Drawing.Color.White;
-            this.txtNivelClase.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtNivelClase.Location = new System.Drawing.Point(400, 61);
-            this.txtNivelClase.Name = "txtNivelClase";
-            this.txtNivelClase.ReadOnly = true;
-            this.txtNivelClase.Size = new System.Drawing.Size(150, 26);
-            this.txtNivelClase.TabIndex = 5;
-            // 
-            // lblNivelClase
-            // 
-            this.lblNivelClase.AutoSize = true;
-            this.lblNivelClase.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblNivelClase.Location = new System.Drawing.Point(330, 64);
-            this.lblNivelClase.Name = "lblNivelClase";
-            this.lblNivelClase.Size = new System.Drawing.Size(40, 19);
-            this.lblNivelClase.TabIndex = 4;
-            this.lblNivelClase.Text = "Nivel";
-            // 
-            // txtCupoClase
-            // 
-            this.txtCupoClase.BackColor = System.Drawing.Color.White;
-            this.txtCupoClase.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtCupoClase.Location = new System.Drawing.Point(660, 61);
-            this.txtCupoClase.Name = "txtCupoClase";
-            this.txtCupoClase.ReadOnly = true;
-            this.txtCupoClase.Size = new System.Drawing.Size(150, 26);
-            this.txtCupoClase.TabIndex = 7;
-            // 
-            // lblCupoClase
-            // 
-            this.lblCupoClase.AutoSize = true;
-            this.lblCupoClase.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblCupoClase.Location = new System.Drawing.Point(590, 64);
-            this.lblCupoClase.Name = "lblCupoClase";
-            this.lblCupoClase.Size = new System.Drawing.Size(41, 19);
-            this.lblCupoClase.TabIndex = 6;
-            this.lblCupoClase.Text = "Cupo";
             // 
             // gbNadador
             // 
@@ -197,6 +197,46 @@
             this.gbNadador.TabStop = false;
             this.gbNadador.Text = "Nadador";
             // 
+            // txtEdadNadador
+            // 
+            this.txtEdadNadador.BackColor = System.Drawing.Color.White;
+            this.txtEdadNadador.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtEdadNadador.Location = new System.Drawing.Point(400, 61);
+            this.txtEdadNadador.Name = "txtEdadNadador";
+            this.txtEdadNadador.ReadOnly = true;
+            this.txtEdadNadador.Size = new System.Drawing.Size(150, 25);
+            this.txtEdadNadador.TabIndex = 5;
+            // 
+            // lblEdadNadador
+            // 
+            this.lblEdadNadador.AutoSize = true;
+            this.lblEdadNadador.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblEdadNadador.Location = new System.Drawing.Point(330, 64);
+            this.lblEdadNadador.Name = "lblEdadNadador";
+            this.lblEdadNadador.Size = new System.Drawing.Size(39, 19);
+            this.lblEdadNadador.TabIndex = 4;
+            this.lblEdadNadador.Text = "Edad";
+            // 
+            // txtCategoriaNadador
+            // 
+            this.txtCategoriaNadador.BackColor = System.Drawing.Color.White;
+            this.txtCategoriaNadador.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtCategoriaNadador.Location = new System.Drawing.Point(150, 61);
+            this.txtCategoriaNadador.Name = "txtCategoriaNadador";
+            this.txtCategoriaNadador.ReadOnly = true;
+            this.txtCategoriaNadador.Size = new System.Drawing.Size(150, 25);
+            this.txtCategoriaNadador.TabIndex = 3;
+            // 
+            // lblCategoriaNadador
+            // 
+            this.lblCategoriaNadador.AutoSize = true;
+            this.lblCategoriaNadador.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblCategoriaNadador.Location = new System.Drawing.Point(20, 64);
+            this.lblCategoriaNadador.Name = "lblCategoriaNadador";
+            this.lblCategoriaNadador.Size = new System.Drawing.Size(68, 19);
+            this.lblCategoriaNadador.TabIndex = 2;
+            this.lblCategoriaNadador.Text = "Categoria";
+            // 
             // cmbNadador
             // 
             this.cmbNadador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -213,49 +253,9 @@
             this.labelNadador.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.labelNadador.Location = new System.Drawing.Point(20, 28);
             this.labelNadador.Name = "labelNadador";
-            this.labelNadador.Size = new System.Drawing.Size(69, 19);
+            this.labelNadador.Size = new System.Drawing.Size(62, 19);
             this.labelNadador.TabIndex = 0;
             this.labelNadador.Text = "Nadador";
-            // 
-            // txtCategoriaNadador
-            // 
-            this.txtCategoriaNadador.BackColor = System.Drawing.Color.White;
-            this.txtCategoriaNadador.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtCategoriaNadador.Location = new System.Drawing.Point(150, 61);
-            this.txtCategoriaNadador.Name = "txtCategoriaNadador";
-            this.txtCategoriaNadador.ReadOnly = true;
-            this.txtCategoriaNadador.Size = new System.Drawing.Size(150, 26);
-            this.txtCategoriaNadador.TabIndex = 3;
-            // 
-            // lblCategoriaNadador
-            // 
-            this.lblCategoriaNadador.AutoSize = true;
-            this.lblCategoriaNadador.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblCategoriaNadador.Location = new System.Drawing.Point(20, 64);
-            this.lblCategoriaNadador.Name = "lblCategoriaNadador";
-            this.lblCategoriaNadador.Size = new System.Drawing.Size(69, 19);
-            this.lblCategoriaNadador.TabIndex = 2;
-            this.lblCategoriaNadador.Text = "Categoria";
-            // 
-            // txtEdadNadador
-            // 
-            this.txtEdadNadador.BackColor = System.Drawing.Color.White;
-            this.txtEdadNadador.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtEdadNadador.Location = new System.Drawing.Point(400, 61);
-            this.txtEdadNadador.Name = "txtEdadNadador";
-            this.txtEdadNadador.ReadOnly = true;
-            this.txtEdadNadador.Size = new System.Drawing.Size(150, 26);
-            this.txtEdadNadador.TabIndex = 5;
-            // 
-            // lblEdadNadador
-            // 
-            this.lblEdadNadador.AutoSize = true;
-            this.lblEdadNadador.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblEdadNadador.Location = new System.Drawing.Point(330, 64);
-            this.lblEdadNadador.Name = "lblEdadNadador";
-            this.lblEdadNadador.Size = new System.Drawing.Size(41, 19);
-            this.lblEdadNadador.TabIndex = 4;
-            this.lblEdadNadador.Text = "Edad";
             // 
             // gbInscripciones
             // 
@@ -319,6 +319,7 @@
             this.Name = "RegistrarNadadorClase19M";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar Nadador a Clase";
+            this.Load += new System.EventHandler(this.RegistrarNadadorClase19M_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.gbClase.ResumeLayout(false);
@@ -329,6 +330,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvInscripciones)).EndInit();
             this.pnlBotones.ResumeLayout(false);
             this.ResumeLayout(false);
+
         }
 
         #endregion

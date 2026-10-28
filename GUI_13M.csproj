@@ -139,6 +139,12 @@
     <Compile Include="PN\RegistrarNadador19M.Designer.cs">
       <DependentUpon>RegistrarNadador19M.cs</DependentUpon>
     </Compile>
+    <Compile Include="PN\BitacoraVersionesNadador19M.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PN\BitacoraVersionesNadador19M.Designer.cs">
+      <DependentUpon>BitacoraVersionesNadador19M.cs</DependentUpon>
+    </Compile>
     <Compile Include="PN\RegistrarClase19M.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,14 +219,23 @@
     <EmbeddedResource Include="PN\InscripcionTorneo19M.resx">
       <DependentUpon>InscripcionTorneo19M.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PN\RegistrarAsistencia19M.resx">
+      <DependentUpon>RegistrarAsistencia19M.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PN\RegistrarNadador19M.resx">
       <DependentUpon>RegistrarNadador19M.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PN\BitacoraVersionesNadador19M.resx">
+      <DependentUpon>BitacoraVersionesNadador19M.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PN\RegistrarClase19M.resx">
       <DependentUpon>RegistrarClase19M.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PN\AsignarProfesorClase19M.resx">
       <DependentUpon>AsignarProfesorClase19M.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PN\RegistrarNadadorClase19M.resx">
+      <DependentUpon>RegistrarNadadorClase19M.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

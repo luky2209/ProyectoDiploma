@@ -247,7 +247,7 @@
             this.labelTipoClase.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.labelTipoClase.Location = new System.Drawing.Point(40, 40);
             this.labelTipoClase.Name = "labelTipoClase";
-            this.labelTipoClase.Size = new System.Drawing.Size(90, 17);
+            this.labelTipoClase.Size = new System.Drawing.Size(86, 17);
             this.labelTipoClase.TabIndex = 0;
             this.labelTipoClase.Text = "Tipo de clase";
             // 
@@ -267,7 +267,7 @@
             this.labelNivel.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.labelNivel.Location = new System.Drawing.Point(40, 80);
             this.labelNivel.Name = "labelNivel";
-            this.labelNivel.Size = new System.Drawing.Size(105, 17);
+            this.labelNivel.Size = new System.Drawing.Size(113, 17);
             this.labelNivel.TabIndex = 2;
             this.labelNivel.Text = "Nivel de dificultad";
             // 
@@ -287,7 +287,7 @@
             this.labelEdadMinima.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.labelEdadMinima.Location = new System.Drawing.Point(40, 120);
             this.labelEdadMinima.Name = "labelEdadMinima";
-            this.labelEdadMinima.Size = new System.Drawing.Size(82, 17);
+            this.labelEdadMinima.Size = new System.Drawing.Size(84, 17);
             this.labelEdadMinima.TabIndex = 4;
             this.labelEdadMinima.Text = "Edad minima";
             // 
@@ -295,12 +295,24 @@
             // 
             this.numEdadMinima.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.numEdadMinima.Location = new System.Drawing.Point(170, 116);
-            this.numEdadMinima.Maximum = new decimal(new int[] { 120, 0, 0, 0});
-            this.numEdadMinima.Minimum = new decimal(new int[] { 1, 0, 0, 0});
+            this.numEdadMinima.Maximum = new decimal(new int[] {
+            120,
+            0,
+            0,
+            0});
+            this.numEdadMinima.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numEdadMinima.Name = "numEdadMinima";
             this.numEdadMinima.Size = new System.Drawing.Size(80, 25);
             this.numEdadMinima.TabIndex = 5;
-            this.numEdadMinima.Value = new decimal(new int[] { 6, 0, 0, 0});
+            this.numEdadMinima.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
             // 
             // labelEdadMaxima
             // 
@@ -308,7 +320,7 @@
             this.labelEdadMaxima.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.labelEdadMaxima.Location = new System.Drawing.Point(40, 160);
             this.labelEdadMaxima.Name = "labelEdadMaxima";
-            this.labelEdadMaxima.Size = new System.Drawing.Size(85, 17);
+            this.labelEdadMaxima.Size = new System.Drawing.Size(87, 17);
             this.labelEdadMaxima.TabIndex = 6;
             this.labelEdadMaxima.Text = "Edad maxima";
             // 
@@ -316,12 +328,24 @@
             // 
             this.numEdadMaxima.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.numEdadMaxima.Location = new System.Drawing.Point(170, 156);
-            this.numEdadMaxima.Maximum = new decimal(new int[] { 120, 0, 0, 0});
-            this.numEdadMaxima.Minimum = new decimal(new int[] { 1, 0, 0, 0});
+            this.numEdadMaxima.Maximum = new decimal(new int[] {
+            120,
+            0,
+            0,
+            0});
+            this.numEdadMaxima.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numEdadMaxima.Name = "numEdadMaxima";
             this.numEdadMaxima.Size = new System.Drawing.Size(80, 25);
             this.numEdadMaxima.TabIndex = 7;
-            this.numEdadMaxima.Value = new decimal(new int[] { 12, 0, 0, 0});
+            this.numEdadMaxima.Value = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
             // 
             // labelCupo
             // 
@@ -329,7 +353,7 @@
             this.labelCupo.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.labelCupo.Location = new System.Drawing.Point(300, 120);
             this.labelCupo.Name = "labelCupo";
-            this.labelCupo.Size = new System.Drawing.Size(85, 17);
+            this.labelCupo.Size = new System.Drawing.Size(89, 17);
             this.labelCupo.TabIndex = 8;
             this.labelCupo.Text = "Cupo maximo";
             // 
@@ -337,12 +361,24 @@
             // 
             this.numCupo.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.numCupo.Location = new System.Drawing.Point(430, 116);
-            this.numCupo.Maximum = new decimal(new int[] { 1000, 0, 0, 0});
-            this.numCupo.Minimum = new decimal(new int[] { 1, 0, 0, 0});
+            this.numCupo.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numCupo.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numCupo.Name = "numCupo";
             this.numCupo.Size = new System.Drawing.Size(80, 25);
             this.numCupo.TabIndex = 9;
-            this.numCupo.Value = new decimal(new int[] { 20, 0, 0, 0});
+            this.numCupo.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
             // 
             // labelHorarioInicio
             // 
@@ -350,7 +386,7 @@
             this.labelHorarioInicio.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.labelHorarioInicio.Location = new System.Drawing.Point(545, 40);
             this.labelHorarioInicio.Name = "labelHorarioInicio";
-            this.labelHorarioInicio.Size = new System.Drawing.Size(96, 17);
+            this.labelHorarioInicio.Size = new System.Drawing.Size(106, 17);
             this.labelHorarioInicio.TabIndex = 10;
             this.labelHorarioInicio.Text = "Horario de inicio";
             // 
@@ -371,7 +407,7 @@
             this.labelHorarioFin.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.labelHorarioFin.Location = new System.Drawing.Point(545, 80);
             this.labelHorarioFin.Name = "labelHorarioFin";
-            this.labelHorarioFin.Size = new System.Drawing.Size(85, 17);
+            this.labelHorarioFin.Size = new System.Drawing.Size(90, 17);
             this.labelHorarioFin.TabIndex = 12;
             this.labelHorarioFin.Text = "Horario de fin";
             // 
@@ -403,7 +439,7 @@
             this.clbDias.FormattingEnabled = true;
             this.clbDias.Location = new System.Drawing.Point(770, 64);
             this.clbDias.Name = "clbDias";
-            this.clbDias.Size = new System.Drawing.Size(160, 166);
+            this.clbDias.Size = new System.Drawing.Size(160, 164);
             this.clbDias.TabIndex = 15;
             // 
             // RegistrarClase19M
@@ -420,6 +456,7 @@
             this.Name = "RegistrarClase19M";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar Clase";
+            this.Load += new System.EventHandler(this.RegistrarClase19M_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlBotones.ResumeLayout(false);

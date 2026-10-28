@@ -55,6 +55,7 @@
     <Compile Include="PN\DALInscripcionClase13M.cs" />
     <Compile Include="PN\DALAsistencia13M.cs" />    <Compile Include="PN\DALProfesor13M.cs" />
     <Compile Include="PN\DALNadador13M.cs" />
+    <Compile Include="PN\DALNadadorHistorial13M.cs" />
     <Compile Include="PN\DALPrueba13M.cs" />
     <Compile Include="PN\DALTorneo13M.cs" />
     <Compile Include="PN\DALInscripcion13M.cs" />

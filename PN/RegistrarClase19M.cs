@@ -113,7 +113,7 @@ namespace Servicios
             numCupo.Enabled = habilitado;
         }
 
-        // arma el texto de los dias tildados separados por coma (ej: Lunes,Miercoles)
+        // arma el texto de los dias tildados separados por coma tipo asi: Lunes,Miercoles
         private string ObtenerDiasSeleccionados()
         {
             List<string> seleccionados = new List<string>();
@@ -291,7 +291,6 @@ namespace Servicios
 
                     MessageBox.Show(t.Translate("RegistrarClase19M.msgClaseModificada"));
                 }
-
                 ResetearFormulario();
             }
             catch (Exception ex)
@@ -354,6 +353,11 @@ namespace Servicios
                 dgvClases.Columns["EdadMaxima"].HeaderText = t.Translate("RegistrarClase19M.colEdadMaxima");
                 dgvClases.Columns["CupoMaximo"].HeaderText = t.Translate("RegistrarClase19M.colCupo");
             }
+        }
+
+        private void RegistrarClase19M_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

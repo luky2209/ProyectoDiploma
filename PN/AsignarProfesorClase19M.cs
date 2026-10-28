@@ -246,5 +246,10 @@ namespace Servicios
             dgvAsignados.Columns["HorarioFin"].HeaderText = t.Translate("AsignarProfesorClase19M.colHorarioFin");
             dgvAsignados.Columns["FechaAsignacion"].HeaderText = t.Translate("AsignarProfesorClase19M.colFechaAsignacion");
         }
+
+        private void AsignarProfesorClase19M_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

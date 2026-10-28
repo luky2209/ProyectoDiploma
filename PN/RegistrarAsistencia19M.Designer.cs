@@ -53,7 +53,7 @@ namespace Servicios
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
             this.lblTitulo.Location = new System.Drawing.Point(26, 33);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(260, 32);
+            this.lblTitulo.Size = new System.Drawing.Size(226, 32);
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "Registrar Asistencia";
             // 
@@ -90,7 +90,7 @@ namespace Servicios
             this.lblClase.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.lblClase.Location = new System.Drawing.Point(30, 35);
             this.lblClase.Name = "lblClase";
-            this.lblClase.Size = new System.Drawing.Size(38, 17);
+            this.lblClase.Size = new System.Drawing.Size(39, 17);
             this.lblClase.TabIndex = 0;
             this.lblClase.Text = "Clase";
             // 
@@ -110,7 +110,7 @@ namespace Servicios
             this.lblFecha.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.lblFecha.Location = new System.Drawing.Point(430, 35);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(40, 17);
+            this.lblFecha.Size = new System.Drawing.Size(41, 17);
             this.lblFecha.TabIndex = 2;
             this.lblFecha.Text = "Fecha";
             // 
@@ -144,7 +144,6 @@ namespace Servicios
             this.dgvAlumnos.AllowUserToAddRows = false;
             this.dgvAlumnos.AllowUserToDeleteRows = false;
             this.dgvAlumnos.AllowUserToResizeRows = false;
-            this.dgvAlumnos.AutoGenerateColumns = false;
             this.dgvAlumnos.BackgroundColor = System.Drawing.Color.White;
             this.dgvAlumnos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
@@ -157,10 +156,6 @@ namespace Servicios
             this.dgvAlumnos.RowHeadersVisible = false;
             this.dgvAlumnos.RowTemplate.Height = 26;
             this.dgvAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAlumnos.Columns.Add(new System.Windows.Forms.DataGridViewTextBoxColumn { Name = "DNI", DataPropertyName = "DNINadador", HeaderText = "DNI" });
-            this.dgvAlumnos.Columns.Add(new System.Windows.Forms.DataGridViewTextBoxColumn { Name = "Nombre", DataPropertyName = "Nombre", HeaderText = "Nombre" });
-            this.dgvAlumnos.Columns.Add(new System.Windows.Forms.DataGridViewTextBoxColumn { Name = "Apellido", DataPropertyName = "Apellido", HeaderText = "Apellido" });
-            this.dgvAlumnos.Columns.Add(new System.Windows.Forms.DataGridViewTextBoxColumn { Name = "Condicion", DataPropertyName = "Condicion", HeaderText = "Condicion" });
             this.dgvAlumnos.Size = new System.Drawing.Size(960, 400);
             this.dgvAlumnos.TabIndex = 2;
             this.dgvAlumnos.SelectionChanged += new System.EventHandler(this.dgvAlumnos_SelectionChanged);
@@ -214,6 +209,7 @@ namespace Servicios
             this.Name = "RegistrarAsistencia19M";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar Asistencia";
+            this.Load += new System.EventHandler(this.RegistrarAsistencia19M_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.gbDatos.ResumeLayout(false);

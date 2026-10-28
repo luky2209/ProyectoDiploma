@@ -16,7 +16,8 @@ FROM (VALUES
     (12, N'Inscripcion Torneo'),
     (13, N'Cargar Resultados'),
     (14, N'Consultar Resultados'),
-    (15, N'Cobrar Inscripcion')
+    (15, N'Cobrar Inscripcion'),
+    (16, N'Bitacora Versiones Nadador')
 ) AS v(Id, Nombre)
 CROSS APPLY (SELECT HASHBYTES('SHA2_256', CAST(v.Id AS varchar(20)) + CAST(v.Nombre AS varchar(50))) AS hash) x
 WHERE NOT EXISTS (SELECT 1 FROM [dbo].[Patente] p WHERE p.Nombre = v.Nombre);
@@ -80,7 +81,7 @@ GO
 INSERT INTO [dbo].[Rol_Patente] ([IdRol], [IdPatente])
 SELECT 1, p.Id
 FROM [dbo].[Patente] p
-WHERE p.Nombre IN (N'Gestion Nadador', N'Gestion Torneo', N'Inscripcion Torneo', N'Cargar Resultados', N'Consultar Resultados', N'Cobrar Inscripcion')
+WHERE p.Nombre IN (N'Gestion Nadador', N'Gestion Torneo', N'Inscripcion Torneo', N'Cargar Resultados', N'Consultar Resultados', N'Cobrar Inscripcion', N'Bitacora Versiones Nadador')
   AND NOT EXISTS (SELECT 1 FROM [dbo].[Rol_Patente] rp WHERE rp.IdRol = 1 AND rp.IdPatente = p.Id);
 GO
 

@@ -1,4 +1,4 @@
-﻿using BE;
+using BE;
 using BLL;
 using Services;
 using Services.Modelos.Idioma;
@@ -6,6 +6,7 @@ using Services_13M;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Data;
 
 namespace Servicios
 {
@@ -30,6 +31,13 @@ namespace Servicios
 
         private void ConfigurarGrilla()
         {
+            dgvAlumnos.AutoGenerateColumns = false;
+            dgvAlumnos.Columns.Clear();
+            dgvAlumnos.Columns.Add(new DataGridViewTextBoxColumn { Name = "DNI", DataPropertyName = "DNINadador", HeaderText = "DNI" });
+            dgvAlumnos.Columns.Add(new DataGridViewTextBoxColumn { Name = "Nombre", DataPropertyName = "Nombre", HeaderText = "Nombre" });
+            dgvAlumnos.Columns.Add(new DataGridViewTextBoxColumn { Name = "Apellido", DataPropertyName = "Apellido", HeaderText = "Apellido" });
+            dgvAlumnos.Columns.Add(new DataGridViewTextBoxColumn { Name = "Condicion", DataPropertyName = "Condicion", HeaderText = "Condicion" });
+
             dgvAlumnos.DataSource = null;
         }
 
@@ -79,33 +87,23 @@ namespace Servicios
 
             _listAlumnos = _bllInscripcionClase.obtenerPorClase(clase.CodigoClase);
 
-            // armar lista con condicion actual
-            List<AsistenciaRow> filas = new List<AsistenciaRow>();
+            // armar tabla con condicion actual
+            DataTable filas = new DataTable();
+            filas.Columns.Add("DNINadador", typeof(string));
+            filas.Columns.Add("Nombre", typeof(string));
+            filas.Columns.Add("Apellido", typeof(string));
+            filas.Columns.Add("Condicion", typeof(string));
+
             List<Asistencia13M> asistencias = _bllAsistencia.obtenerPorClaseYFecha(clase.CodigoClase, fecha);
 
             foreach (InscripcionClase13M insc in _listAlumnos)
             {
                 Asistencia13M asis = asistencias.Find(a => a.DNINadador == insc.DNINadador);
-                filas.Add(new AsistenciaRow
-                {
-                    DNINadador = insc.DNINadador,
-                    Nombre = insc.Nombre,
-                    Apellido = insc.Apellido,
-                    Condicion = asis != null ? asis.Condicion : ""
-                });
+                filas.Rows.Add(insc.DNINadador, insc.Nombre, insc.Apellido, asis != null ? asis.Condicion : "");
             }
 
             dgvAlumnos.DataSource = null;
             dgvAlumnos.DataSource = filas;
-        }
-
-        // clase auxiliar para mostrar la condicion en la grilla
-        private class AsistenciaRow
-        {
-            public string DNINadador { get; set; }
-            public string Nombre { get; set; }
-            public string Apellido { get; set; }
-            public string Condicion { get; set; }
         }
 
         private void dgvAlumnos_SelectionChanged(object sender, EventArgs e)
@@ -186,6 +184,11 @@ namespace Servicios
             dgvAlumnos.Columns["Nombre"].HeaderText = t.Translate("RegistrarAsistencia19M.colNombre");
             dgvAlumnos.Columns["Apellido"].HeaderText = t.Translate("RegistrarAsistencia19M.colApellido");
             dgvAlumnos.Columns["Condicion"].HeaderText = t.Translate("RegistrarAsistencia19M.colCondicion");
+        }
+
+        private void RegistrarAsistencia19M_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

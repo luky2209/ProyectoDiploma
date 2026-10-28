@@ -67,7 +67,7 @@
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
             this.lblTitulo.Location = new System.Drawing.Point(26, 33);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(260, 32);
+            this.lblTitulo.Size = new System.Drawing.Size(278, 32);
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "Asignar Profesor a Clase";
             // 
@@ -109,7 +109,7 @@
             this.labelClase.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.labelClase.Location = new System.Drawing.Point(30, 43);
             this.labelClase.Name = "labelClase";
-            this.labelClase.Size = new System.Drawing.Size(38, 17);
+            this.labelClase.Size = new System.Drawing.Size(39, 17);
             this.labelClase.TabIndex = 0;
             this.labelClase.Text = "Clase";
             // 
@@ -130,7 +130,7 @@
             this.labelProfesor.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.labelProfesor.Location = new System.Drawing.Point(30, 76);
             this.labelProfesor.Name = "labelProfesor";
-            this.labelProfesor.Size = new System.Drawing.Size(57, 17);
+            this.labelProfesor.Size = new System.Drawing.Size(58, 17);
             this.labelProfesor.TabIndex = 2;
             this.labelProfesor.Text = "Profesor";
             // 
@@ -151,7 +151,7 @@
             this.labelFranja.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.labelFranja.Location = new System.Drawing.Point(30, 109);
             this.labelFranja.Name = "labelFranja";
-            this.labelFranja.Size = new System.Drawing.Size(91, 17);
+            this.labelFranja.Size = new System.Drawing.Size(89, 17);
             this.labelFranja.TabIndex = 4;
             this.labelFranja.Text = "Franja horaria";
             // 
@@ -171,7 +171,7 @@
             this.labelFechaAsignacion.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.labelFechaAsignacion.Location = new System.Drawing.Point(490, 43);
             this.labelFechaAsignacion.Name = "labelFechaAsignacion";
-            this.labelFechaAsignacion.Size = new System.Drawing.Size(123, 17);
+            this.labelFechaAsignacion.Size = new System.Drawing.Size(126, 17);
             this.labelFechaAsignacion.TabIndex = 6;
             this.labelFechaAsignacion.Text = "Fecha de asignacion";
             // 
@@ -191,7 +191,7 @@
             this.labelEspecialidad.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.labelEspecialidad.Location = new System.Drawing.Point(490, 76);
             this.labelEspecialidad.Name = "labelEspecialidad";
-            this.labelEspecialidad.Size = new System.Drawing.Size(78, 17);
+            this.labelEspecialidad.Size = new System.Drawing.Size(81, 17);
             this.labelEspecialidad.TabIndex = 8;
             this.labelEspecialidad.Text = "Especialidad";
             // 
@@ -327,6 +327,7 @@
             this.Name = "AsignarProfesorClase19M";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Asignar Profesor a Clase";
+            this.Load += new System.EventHandler(this.AsignarProfesorClase19M_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.gbAsignacion.ResumeLayout(false);

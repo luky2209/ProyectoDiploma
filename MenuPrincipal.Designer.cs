@@ -60,8 +60,8 @@
             this.lblSeccionAdmin = new System.Windows.Forms.Label();
             this.btnClases = new System.Windows.Forms.Button();
             this.btnRegistrarNadadorClase = new System.Windows.Forms.Button();
-            this.btnAsignarProfesor = new System.Windows.Forms.Button();
             this.btnRegistrarAsistencia = new System.Windows.Forms.Button();
+            this.btnAsignarProfesor = new System.Windows.Forms.Button();
             this.lblSeccionClases = new System.Windows.Forms.Label();
             this.lblSeccionTorneos = new System.Windows.Forms.Label();
             this.lblSeccionNadadores = new System.Windows.Forms.Label();
@@ -520,7 +520,7 @@
             this.btnRegistrarNadadorClase.Click += new System.EventHandler(this.RegistrarNadadorClase_Click);
             // 
             // btnRegistrarAsistencia
-            //
+            // 
             this.btnRegistrarAsistencia.BackColor = System.Drawing.Color.Transparent;
             this.btnRegistrarAsistencia.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegistrarAsistencia.FlatAppearance.BorderSize = 0;
@@ -530,13 +530,14 @@
             this.btnRegistrarAsistencia.ForeColor = System.Drawing.Color.White;
             this.btnRegistrarAsistencia.Location = new System.Drawing.Point(22, 439);
             this.btnRegistrarAsistencia.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRegistrarAsistencia.Name = "btnRegistrarAsistencia";
             this.btnRegistrarAsistencia.Size = new System.Drawing.Size(206, 32);
             this.btnRegistrarAsistencia.TabIndex = 24;
             this.btnRegistrarAsistencia.Text = "Registrar Asistencia";
             this.btnRegistrarAsistencia.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRegistrarAsistencia.UseVisualStyleBackColor = false;
             this.btnRegistrarAsistencia.Click += new System.EventHandler(this.RegistrarAsistencia_Click);
-            //
+            // 
             // btnAsignarProfesor
             // 
             this.btnAsignarProfesor.BackColor = System.Drawing.Color.Transparent;
@@ -597,7 +598,7 @@
             this.lblUsuarioSidebar.AutoSize = true;
             this.lblUsuarioSidebar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuarioSidebar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(202)))), ((int)(((byte)(228)))));
-            this.lblUsuarioSidebar.Location = new System.Drawing.Point(65, 47);
+            this.lblUsuarioSidebar.Location = new System.Drawing.Point(48, 47);
             this.lblUsuarioSidebar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsuarioSidebar.Name = "lblUsuarioSidebar";
             this.lblUsuarioSidebar.Size = new System.Drawing.Size(108, 15);

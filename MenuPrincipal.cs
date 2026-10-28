@@ -22,10 +22,15 @@ namespace Servicios
         UsuarioModelo13M usuarioActual = Services_13M.ServiceSessionManager13M.getIntancia().usuarioActivo;
         BLLIdioma13M _idiomaService = new BLLIdioma13M();
         UsuarioService _userService = new UsuarioService();
+        ToolStripMenuItem _itemBitacoraVersiones = null;
 
         public MenuPrincipal()
         {
             InitializeComponent();
+
+            _itemBitacoraVersiones = new ToolStripMenuItem("Bitacora Versiones Nadador");
+            _itemBitacoraVersiones.Click += (s, e) => { new BitacoraVersionesNadador19M().Show(); };
+            menuStrip1.Items.Add(_itemBitacoraVersiones);
 
             configurarAcceso();
             AplicarPermisosSidebar();
@@ -159,6 +164,8 @@ namespace Servicios
             gestionUsuariosToolStripMenuItem.Enabled = ServiceSessionManager13M.getIntancia().TienePermiso("Gestion Usuario");
             iniciarSesionToolStripMenuItem.Enabled = ServiceSessionManager13M.getIntancia().TienePermiso("Iniciar Sesion");
             bitacoraEventosToolStripMenuItem.Enabled = ServiceSessionManager13M.getIntancia().TienePermiso("Auditoria Eventos");
+            if (_itemBitacoraVersiones != null)
+                _itemBitacoraVersiones.Enabled = ServiceSessionManager13M.getIntancia().TienePermiso("Bitacora Versiones Nadador");
             gestionRolToolStripMenuItem.Enabled = ServiceSessionManager13M.getIntancia().TienePermiso("Gestion Roles");
             gestionFamiliaToolStripMenuItem.Enabled = ServiceSessionManager13M.getIntancia().TienePermiso("Gestion Familia");
             cambiarClaveToolStripMenuItem.Enabled = ServiceSessionManager13M.getIntancia().TienePermiso("Cambiar Clave");
@@ -256,6 +263,8 @@ namespace Servicios
             btnGestionRoles.Text = t.Translate("MenuPrincipal.menuGestionRol");
             btnGestionFamilias.Text = t.Translate("MenuPrincipal.menuGestionFamilia");
             btnAuditoria.Text = t.Translate("MenuPrincipal.menuBitacoraEventos");
+            if (_itemBitacoraVersiones != null)
+                _itemBitacoraVersiones.Text = t.Translate("MenuPrincipal.btnBitacoraVersionesNadador");
             btnGestionRespaldo.Text = t.Translate("MenuPrincipal.menuRespaldo");
             btnCambiarClave.Text = t.Translate("MenuPrincipal.menuCambiarClave");
             btnCerrarSesion.Text = t.Translate("MenuPrincipal.menuCerrarSesion");

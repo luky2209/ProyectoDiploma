@@ -152,5 +152,10 @@ namespace Servicios
             gbInscripciones.Text = t.Translate("RegistrarNadadorClase19M.gbInscripciones");
             btnRegistrar.Text = t.Translate("RegistrarNadadorClase19M.btnRegistrar");
         }
+
+        private void RegistrarNadadorClase19M_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
