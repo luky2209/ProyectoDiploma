@@ -318,6 +318,33 @@ namespace Servicios
             CargarGrilla();
         }
 
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            var t = ServiceSessionManager13M.getIntancia().Idioma;
+
+            string[] pasos =
+            {
+                t.Translate("RegistrarClase19M.ayudaPaso1"),
+                t.Translate("RegistrarClase19M.ayudaPaso2"),
+                t.Translate("RegistrarClase19M.ayudaPaso3"),
+                t.Translate("RegistrarClase19M.ayudaPaso4"),
+                t.Translate("RegistrarClase19M.ayudaPaso5"),
+                t.Translate("RegistrarClase19M.ayudaPaso6")
+            };
+
+            string texto = "";
+
+            for (int i = 0; i < pasos.Length; i++)
+            {
+                texto += (i + 1) + ". " + pasos[i] + Environment.NewLine + Environment.NewLine;
+            }
+
+            MessageBox.Show(texto.TrimEnd(),
+                t.Translate("RegistrarClase19M.ayudaTitulo"),
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+        }
+
         public void actualizarIdioma()
         {
             var t = ServiceSessionManager13M.getIntancia().Idioma;
@@ -325,6 +352,7 @@ namespace Servicios
             this.Text = t.Translate("RegistrarClase19M.formTitle");
             lblTitulo.Text = t.Translate("RegistrarClase19M.lblTitulo");
             lblLogoApp.Text = t.Translate("RegistrarClase19M.lblLogoApp");
+            btnAyuda.Text = t.Translate("RegistrarClase19M.btnAyuda");
             gbClases.Text = t.Translate("RegistrarClase19M.gbClases");
             gbDatos.Text = t.Translate("RegistrarClase19M.gbDatos");
             labelTipoClase.Text = t.Translate("RegistrarClase19M.labelTipoClase");

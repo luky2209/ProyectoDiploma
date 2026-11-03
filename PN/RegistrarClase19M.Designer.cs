@@ -21,6 +21,7 @@
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblLogoApp = new System.Windows.Forms.Label();
+            this.btnAyuda = new System.Windows.Forms.Button();
             this.pnlBotones = new System.Windows.Forms.Panel();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -61,6 +62,7 @@
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(31)))), ((int)(((byte)(58)))));
             this.pnlHeader.Controls.Add(this.lblTitulo);
             this.pnlHeader.Controls.Add(this.lblLogoApp);
+            this.pnlHeader.Controls.Add(this.btnAyuda);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
@@ -88,6 +90,23 @@
             this.lblLogoApp.Size = new System.Drawing.Size(89, 19);
             this.lblLogoApp.TabIndex = 0;
             this.lblLogoApp.Text = "AquaGestion";
+            // 
+            // btnAyuda
+            // 
+            this.btnAyuda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAyuda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.btnAyuda.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAyuda.FlatAppearance.BorderSize = 0;
+            this.btnAyuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAyuda.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.btnAyuda.ForeColor = System.Drawing.Color.White;
+            this.btnAyuda.Location = new System.Drawing.Point(900, 22);
+            this.btnAyuda.Name = "btnAyuda";
+            this.btnAyuda.Size = new System.Drawing.Size(80, 28);
+            this.btnAyuda.TabIndex = 2;
+            this.btnAyuda.Text = "Ayuda";
+            this.btnAyuda.UseVisualStyleBackColor = false;
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
             // 
             // pnlBotones
             // 
@@ -476,6 +495,7 @@
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblLogoApp;
+        private System.Windows.Forms.Button btnAyuda;
         private System.Windows.Forms.Panel pnlBotones;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;

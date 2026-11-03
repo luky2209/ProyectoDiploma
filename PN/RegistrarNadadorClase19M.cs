@@ -134,12 +134,39 @@ namespace Servicios
             }
         }
 
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            var t = ServiceSessionManager13M.getIntancia().Idioma;
+
+            string[] pasos =
+            {
+                t.Translate("RegistrarNadadorClase19M.ayudaPaso1"),
+                t.Translate("RegistrarNadadorClase19M.ayudaPaso2"),
+                t.Translate("RegistrarNadadorClase19M.ayudaPaso3"),
+                t.Translate("RegistrarNadadorClase19M.ayudaPaso4"),
+                t.Translate("RegistrarNadadorClase19M.ayudaPaso5")
+            };
+
+            string texto = "";
+
+            for (int i = 0; i < pasos.Length; i++)
+            {
+                texto += (i + 1) + ". " + pasos[i] + Environment.NewLine + Environment.NewLine;
+            }
+
+            MessageBox.Show(texto.TrimEnd(),
+                t.Translate("RegistrarNadadorClase19M.ayudaTitulo"),
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+        }
+
         public void actualizarIdioma()
         {
             var t = ServiceSessionManager13M.getIntancia().Idioma;
 
             this.Text = t.Translate("RegistrarNadadorClase19M.formTitle");
             lblTitulo.Text = t.Translate("RegistrarNadadorClase19M.lblTitulo");
+            btnAyuda.Text = t.Translate("RegistrarNadadorClase19M.btnAyuda");
             gbClase.Text = t.Translate("RegistrarNadadorClase19M.gbClase");
             labelClase.Text = t.Translate("RegistrarNadadorClase19M.labelClase");
             lblRangoEtarioClase.Text = t.Translate("RegistrarNadadorClase19M.lblRangoEtarioClase");

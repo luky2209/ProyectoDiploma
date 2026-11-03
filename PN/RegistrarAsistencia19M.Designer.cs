@@ -1,4 +1,4 @@
-namespace Servicios
+﻿namespace Servicios
 {
     partial class RegistrarAsistencia19M
     {
@@ -21,6 +21,8 @@ namespace Servicios
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblLogoApp = new System.Windows.Forms.Label();
+            this.btnAyuda = new System.Windows.Forms.Button();
+            this.btnDescargarPdf = new System.Windows.Forms.Button();
             this.gbDatos = new System.Windows.Forms.GroupBox();
             this.lblClase = new System.Windows.Forms.Label();
             this.cmbClase = new System.Windows.Forms.ComboBox();
@@ -40,6 +42,7 @@ namespace Servicios
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(31)))), ((int)(((byte)(58)))));
             this.pnlHeader.Controls.Add(this.lblTitulo);
             this.pnlHeader.Controls.Add(this.lblLogoApp);
+            this.pnlHeader.Controls.Add(this.btnAyuda);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
@@ -67,6 +70,23 @@ namespace Servicios
             this.lblLogoApp.Size = new System.Drawing.Size(89, 19);
             this.lblLogoApp.TabIndex = 0;
             this.lblLogoApp.Text = "AquaGestion";
+            // 
+            // btnAyuda
+            // 
+            this.btnAyuda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAyuda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            this.btnAyuda.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAyuda.FlatAppearance.BorderSize = 0;
+            this.btnAyuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAyuda.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.btnAyuda.ForeColor = System.Drawing.Color.White;
+            this.btnAyuda.Location = new System.Drawing.Point(900, 22);
+            this.btnAyuda.Name = "btnAyuda";
+            this.btnAyuda.Size = new System.Drawing.Size(80, 28);
+            this.btnAyuda.TabIndex = 2;
+            this.btnAyuda.Text = "Ayuda";
+            this.btnAyuda.UseVisualStyleBackColor = false;
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
             // 
             // gbDatos
             // 
@@ -194,12 +214,30 @@ namespace Servicios
             this.btnAusente.UseVisualStyleBackColor = false;
             this.btnAusente.Click += new System.EventHandler(this.btnAusente_Click);
             // 
+            // btnDescargarPdf
+            // 
+            this.btnDescargarPdf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(31)))), ((int)(((byte)(58)))));
+            this.btnDescargarPdf.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDescargarPdf.Enabled = false;
+            this.btnDescargarPdf.FlatAppearance.BorderSize = 0;
+            this.btnDescargarPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDescargarPdf.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.btnDescargarPdf.ForeColor = System.Drawing.Color.White;
+            this.btnDescargarPdf.Location = new System.Drawing.Point(800, 590);
+            this.btnDescargarPdf.Name = "btnDescargarPdf";
+            this.btnDescargarPdf.Size = new System.Drawing.Size(180, 34);
+            this.btnDescargarPdf.TabIndex = 5;
+            this.btnDescargarPdf.Text = "Descargar PDF";
+            this.btnDescargarPdf.UseVisualStyleBackColor = false;
+            this.btnDescargarPdf.Click += new System.EventHandler(this.btnDescargarPdf_Click);
+            // 
             // RegistrarAsistencia19M
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(1000, 640);
+            this.Controls.Add(this.btnDescargarPdf);
             this.Controls.Add(this.btnAusente);
             this.Controls.Add(this.btnPresente);
             this.Controls.Add(this.dgvAlumnos);
@@ -224,6 +262,8 @@ namespace Servicios
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblLogoApp;
+        private System.Windows.Forms.Button btnAyuda;
+        private System.Windows.Forms.Button btnDescargarPdf;
         private System.Windows.Forms.GroupBox gbDatos;
         private System.Windows.Forms.Label lblClase;
         private System.Windows.Forms.ComboBox cmbClase;
